@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<form id="fm" action="intro2.jsp">
+		이름: <input type="text" name="name"><br>
+		나이: <input type="text" name="age"><br>
+		<br>
+		<button type="button" onclick="fnSubmit()">post버튼</button>
+		<button type="submit">get버튼</button>
+		<hr>
+		<button type="button" id="sendAjax" onclick="fnAjax()">Ajax전송</button>
+	</form>
+	<div id="resultAjax"></div>
+</body>
+<script type="text/javascript">
+	// form submit 방식 호출
+	function fnSubmit(){
+		var fm = document.getElementById("#fm");
+		// <form>의 'method' 속성의 기본값은 'get'
+		fm.method = "post"; // 전송 방식 - ajax의 'type'
+		fm.action = "intro.jsp2"; // 호출할 주소 - ajax의 'url'
+		fm.submit();
+	}
+	// jquery ajax 방식 호출
+	function fnAjax(){
+		$.ajax({
+			url: "intro.html"
+			,type: "get"
+// 			,data:
+			,dataType: "json"
+			,success: function(data){
+				$("#resultAjax").html(data);
+			}
+			,error: function(xhr){
+				console.log(xhr);
+				alert("오류입니다.");
+			}
+		});
+	}
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css"> 
+		div {
+			border: 1px dashed;
+		}		
+		div div {
+			border: 1px double red;
+		}
+		div h1 {
+			color: green;
+		}
+		div div p {
+			color: orange;
+		}
+		form *{
+			 border: 0px;
+		}
+		form p {
+			background-color: Lime; 
+		}
+		form > p {
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<h1 id="tmp1">예시1</h1>
+		<p>동해물과 백두산이</p>
+		<h1 id="tmp2">예시2</h1>
+		<p>마르고 닳도록</p>
+	</div>
+	<div>
+		<h1 class="test">예시3</h1>
+		<p>하느님이 보우하사</p>
+		<div>
+			<h1 class="test">예시4</h1>
+			<p class="test1">우리나라 만세</p>
+			<h1 class="test1">예시5</h1>
+			<p class="test">만세만세 만만세</p>
+		</div>
+	</div>
+	
+	<form>
+		<p>가나다라마바사</p>
+		<div>
+			<p>가나다라마바사</p>
+			<p>가나다라마바사</p>
+		</div>
+		<p>가나다라마바사</p>
+	</form>
+
+		
+</body>
+</html>

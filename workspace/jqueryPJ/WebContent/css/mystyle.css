@@ -1,0 +1,162 @@
+@charset "UTF-8";
+ body{
+ 	 font-family:"sans-serif";
+ }
+ #header{
+		width: 100%;
+    	height: 8vh;	
+    	background-color: #8080ff;     
+}
+.mainImage{
+		float:left;
+}
+.WebShopping{
+		position: relative;
+		left: 20px;
+		top: 10px;
+}
+.WebShopping a{
+		text-decoration: none;
+		color: black;
+}
+.mainhr{
+		border: none; 
+		border-top: 3px dotted black;
+}
+ul.menu{
+		padding: 10px 0px;
+		text-align: center;
+		}
+		.menu li{
+		text-transform: uppercase;
+		display: inline;
+		padding: 5px 10px;
+		letter-spacing: 8px; /* 글자 사이 간격  */ 
+		margin: 0px 15px; /* 글 전체 간격  */
+		}
+		.menu li a{
+		text-decoration: none;
+		color: black;
+		font-size: large;
+		font-weight: bold;
+		}
+.navhr{ 
+		border-bottom-color: black;
+		border-bottom-width: 2px
+}
+#left{
+		width:calc(17%);
+		height: 630px;
+		background-color: #a537ff;
+		float: left;
+		margin-right: 20px;
+}
+#asideLeft table{
+		border: 1px solid black;
+		border-collapse: collapse;
+		width: 100%;
+		height: 400px;
+		position: relative;
+		top: 60px;
+}	
+.cathr{
+		text-align: center;
+		position: relative;
+		top: 40px;
+}
+#asideLeft table td{
+		border: 1px solid black;
+		font-size: medium;
+		text-align: left;
+		background-color: #dda0dd;
+		padding: 10px;	
+}
+#asideLeft table td a{
+		text-decoration: none;
+		color: white;
+}
+#asideLeft table td:link {
+		color: white
+}
+#section{
+		width:calc(66% - 296px);
+		height: 630px;	
+		float: left;
+		padding-left: 270px
+		
+}
+#asideRight{
+		width: calc(17%);
+		height: 630px;
+		background-color: #a537ff;
+		float: right;
+}
+.Top{
+		margin-left: 20px;
+		margin-bottom: 40px;
+}
+.Top a {
+		color: white;
+}
+.middle{
+		margin-left: 20px;
+		margin-bottom: 40px;
+}
+.id, .password{
+		width: 270px;	
+}
+.middle button{
+		margin-top: 30px;
+}
+.bottom{
+		margin-left: 20px;
+		display: inline-table;
+		margin-bottom: 20px;
+}
+.bottom a{
+		color: white;
+}		
+.if1{
+		width: 90%;
+		height: 620px;
+}
+#article1{
+		width: 31%;	
+		height: 630px;
+		border: 1px solid gray;
+		margin-left: 2px;
+		float: left;
+}
+#article2{
+		width: 31%;
+		height: 630px;
+		border: 1px solid gray;
+		margin-left: 2px;
+		float: left;
+}		
+#article3{
+		width: 31%;
+		height: 630px;
+		border: 1px solid gray;
+		margin-left: 2px;
+		float: left;
+}
+#footer{
+		width: 100%;
+		height: 120px;
+		clear: both;
+		background-color: black;
+		color: white;
+		text-align: center;
+		line-height: 60px;
+		position: relative;
+		top: 15px;
+}
+fieldset{
+		width: 400px;
+		height: 300px;
+}
+fieldset input{
+		margin-left: 50px;
+}	
+

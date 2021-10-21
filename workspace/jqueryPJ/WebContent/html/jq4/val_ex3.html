@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img{
+			height: 300px;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var img1 = $("<img alt='1' src='image/sea.jfif'>");
+			var img2 = $("<img alt='2' src='image/lion.jpg'>");
+			var img3 = $("<img alt='3' src='image/tiger.jpg'>");
+			var img4 = $("<img alt='4' src='image/spongebob.jpg'>");
+			console.log(img1);
+
+			$("#1").click(function() {
+				$(this).before(img1);
+			});
+			$("#2").click(function() {
+				$(this).append(img2);
+			});
+			$("#3").click(function() {
+				$(this).after(img3);
+			});
+			$("#4").click(function() {
+				$(this).append(img4);
+			});
+			
+		});
+		
+	</script>
+</head>
+<body>
+	<p id="1">바다</p><br>
+	<p id="2">사자</p><br>
+	<p id="3">호랑이</p><br>
+	<p id="4">스폰지</p><br>
+</body>
+</html>

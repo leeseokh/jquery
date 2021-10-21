@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>생성자를 이용한 객체 생성</title>
+	<script type="text/javascript">
+		/* MemberVo.java
+		자바 형식 객체 생성	
+		 /* MemberVo vo = new MemberVo(); */ 
+		 /* MemberVo vo = new MemberVo("test01", "홍길동"); */ 
+		 
+/* 		 function Car(){
+			 //...
+		 } */
+		 
+		 
+		 function Car(model, speed){
+			 //객체의 속성
+			 this.model = model;
+			 this.speed = speed;
+			 this.color = "white";
+			 
+			 //객체의 함수
+			 this.brake = function(){
+				 this.speed -=10;
+			 }
+			 this.accel = function(){
+				 this.speed +=10;
+		 }
+	}
+//		 var myCar = new Car();
+		 var myCar = new Car("Morning", 200);
+//array	 myCar.model ==>"morning"
+//array	 myCar["model"] ==>"morning"
+		 
+		 document.write("모델, 속도: " + myCar.model + ", " + myCar.speed);
+		 document.write("<br>")
+		 
+		 function brake() {
+			myCar.brake();
+			document.getElementById("result").innerHTML = myCar.speed;
+		}
+		 function accel() {
+			 myCar.accel();
+				 
+			 document.getElementById("result").innerHTML = myCar.speed;	
+			
+				// 기존에 없던 속성도 추가 가능
+				/* myCar.turbo = true;
+				myCar.showModel = function(){
+					alert("모델은" + this.model + "입니다.");
+				}
+				myCar.showModel(); */
+				
+				//속성 삭제
+/* 				console.log(">>>>" + myCar.turbo);
+				delete myCar.turbo;
+				console.log(">>>>" + myCar.turbo); //추가한 로그 확인 */
+				
+		 }
+	</script>
+</head>
+<body>
+	<button type="button" onclick="brake();">브레이크</button>
+	<button type="button" onclick="accel();">엑셀</button>
+	<p>자동차 속도: <span id="result"></span></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function validate(){
+			var tel = document.getElementById("tel").value;
+			// \d : 숫자
+			var regExp = /^\d{3}-\d{4}-\d{4}$/; //핸드폰 형식
+			if(tel.match(regExp)){
+				alert("올바른 형식 입니다.");
+				console.log(tel.match(regExp));
+			}else{
+				alert("올바르지 못한 형식 입니다.");
+				document.getElementById("tel").focus();
+			}
+		}
+			function validate2() {
+				
+			var email = document.getElementById("email").value;
+			
+			var regExp2 =/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+					
+			if(email.match(regExp2)){
+				alert("올바른 형식 입니다.");
+				console.log(email.match(regExp2));
+			}else{
+				alert("올바르지 못한 형식 입니다.");
+				document.getElementById("email").focus();
+			}
+		}
+		
+				
+	</script>
+</head>
+<body>
+	전화번호 : <input type="text" id="tel"> 
+	<button type="button" onclick="validate()">검증</button>
+	<br>
+	이메일 : <input type="text" id="email">
+	<button type="button" onclick="validate2()">검증</button>	
+</body>
+</html
+>

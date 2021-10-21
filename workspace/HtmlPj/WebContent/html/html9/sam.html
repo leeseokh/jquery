@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function reg_No(){
+			document.getElementById("jumin").value;
+			//830614-1234567
+			
+			jumin = jumin.trim();
+			jumin = jumin.replace("-",""); // 960725-1423271
+			
+			var year = jumin.substr(0, 2);
+			var month = jumin.substr(2, 2);
+			var day = jumin.substr(4, 2);
+			var key = jumin.charAt(6);
+			
+			//성별
+			var strGender = "";
+			switch(key){
+			case "1":
+			case "3":
+				strGender = "남자";
+				break;
+			case "2":
+			case "4":
+				strGender = "여자";
+				break;
+			}
+			document.getElementById("gender").innerHTML = strGender;
+			//생일
+			if(key =="1" || key =="2"){
+			//1900
+				year = "19" + year; 
+			}else if(key =="3" || key =="4"){
+			//2000
+				year = "20" + year;
+			}else{
+			//?	
+				year = "??" + year;
+			}
+			document.getElementById("birth").innerHTML = year +"년" + month + "월 "+ day +"일";
+			//나이
+			if(key == "1" || key == "2" || key == "3" || key == "4"){
+			document.getElementById("age").innerHTML  =new Date().getFullYear() - parseInt(year) + 1
+			}else{
+				document.getElementById("age").innerHTML = "알수없음."
+			}
+			
+		}
+		
+		
+		function checkJumin(){
+			var jumin = document.getElementById("jumin").value;
+			//123456-1234567
+			jumin = jumin.replace("=", "");
+			
+			var sum =0;
+			for(var i =0; i<jumin.length-1; i++){
+				if(i < 8 ){
+				sum +=(jumin.charAt(i) * (1+2));
+			}else{
+				sum +=(jumin.charAt(i) * (1-6));
+		}
+	}
+}
+	</script>
+</head>
+<body>
+	<div>
+		<input type="text" id="jumin">
+		<button type="button" onclick="reg_No">실행</button>
+		<p>성별:<span id="gender"></span></p>
+		<p>나이:<span id="age"></span></p>
+		<p>생일:<span id="birth"></span></p>
+	</div>
+	
+</body>
+</html>

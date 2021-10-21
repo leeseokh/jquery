@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		button{
+			color: white;
+			background-color: blue;
+			border-radius: 20px;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc(flag) {
+			if(flag==1){
+				$("img").show(1000);
+			}else if(flag==2){
+				$("img").hide(1000);					
+			}else if(flag==3){
+				$("img").slideUp(1000);					
+			}else if(flag==4){
+				$("img").slideDown(1000);					
+			}else if(flag==5){
+				$("img").slideToggle(1000);					
+			}else if(flag==6){
+				$("img").fadeIn("slow");					
+			}else if(flag==7){
+				$("img").fadeOut(1000);					
+			}else if(flag==8){
+				$("img").fadeTo("slow", 0.2);					
+			}else if(flag==9){
+				$("img").fadeToggle(1000);					
+			}else{
+				return;
+			}
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc(1)">show</button>
+	<button type="button" onclick="proc(2)">hide</button>
+	<button type="button" onclick="proc(3)">slideUp</button>
+	<button type="button" onclick="proc(4)">slideDown</button>
+	<button type="button" onclick="proc(5)">slideToggle</button>
+	<button type="button" onclick="proc(6)">fadeIn</button>
+	<button type="button" onclick="proc(7)">fadeOut</button>
+	<button type="button" onclick="proc(8)">fadeTo</button>
+	<button type="button" onclick="proc(9)">fadeToggle</button>
+	<br><br>
+	<img alt="tiger" src="image/tiger.jpg" width="500px">
+</body>
+</html>

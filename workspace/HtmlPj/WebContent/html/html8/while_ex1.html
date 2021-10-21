@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<script type="text/javascript">
+		var i = 0;
+		while(i < 10){
+			document.write("카운터: " + i + "<br>");
+			i++
+		}
+		
+		document.write("<hr>");
+		
+		var flag = true;
+		i = 0;
+		while(flag){
+			document.write("카운터: " + i + "<br>");
+			i++
+			
+			if(i == 10){
+				flag = false;
+			}
+		}
+		
+		document.write("<hr>");
+		
+		i = 0;
+		do{			
+			document.write("카운터: " + i + "<br>");
+			i++
+		}while(i<10);
+		
+		document.write("<hr>");
+		
+		//1부터 10까지의 합을 구하는 프로그램을 작성하시오.
+		document.write("<hr>");
+		
+		var sum = 0;
+		for(var i = 1; i < 11; i++ ){
+			sum += i;;
+		}
+		document.write(sum);
+		document.write("<hr>");
+		
+		//2. 1부터 200까지의 짝수의 합을 구하는 프로그램을 작성하시오
+
+		var sum = 0;
+		for(var i = 1; i < 201; i++ ){
+			if(i % 2 == 0){
+				sum += i;
+			}
+		}
+		document.write(sum);
+		document.write("<hr>");
+		
+		//2.(cotinue 이용)
+		sum = 0;
+		for(var i = 1; i < 201; i++ ){
+			if( i % 2){ //홀수인 경우는 1, 짝수는 0
+			//홀수인 경우 수행
+				continue;
+			}
+			sum +=i;
+		}
+		document.write(sum);
+		
+		// if 문의 조건으로 0인경우 수행되지 않고 , 그 외는 수행 아래거...
+		
+		if(0){
+			alert(0);		//버튼~~
+		}
+		if(1){
+			alert(1);
+		}		
+		if(50){
+			alert(50);
+		}
+		if(-1){
+			alert(-1);
+		}
+		
+		//함수
+				
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

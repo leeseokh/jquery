@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>selector</title>
+   <script type="text/javascript" src="jquery-3.6.0.js"></script>
+   <script>
+   $(document).ready(function(){
+	   
+	   //type이 button인 input 요소와 href가 'mailto'로 시작하는 a 요소의 배경색 노란색으로 변경
+	   $("input[type='button']").css("background-color", "yellow");
+	   
+	   $("a[href ^='mailto']").css("background-color", "yellow");
+	   
+	   //// href가 'power2c'를 포함하는 모든 a 요소의 밑줄 없음
+	    $("a[href *='power2c']").css("text-decoration", "none");
+	   
+       // img 요소 중 id 가 'img1'인 것 제외하고 테두리 색 파랑
+	    
+	   $("img[id !='#img1']").css("border","solid blue");	
+       
+	   $("#img1").css("border","solid black");	
+	 
+	   // src가 'png'로 끝나는 img 요소의 테두리 색 초록
+	   
+	   $("img[src $='png']").css("border","solid 3px green");
+	   
+	   // alt 속성을 갖는 이미지 요소의 테두리 두께 5px
+	   $("img[alt]").css("border-width","5px");
+	   
+	   // title이 'named' 단어를 포함하는 img 요소 두 줄 테두리
+	   $("img[title ~=named]").css("border","double");
+	   
+	   // id가 'little'이거나 'little-'로 시작하는 img 요소 점선 테두리
+	   $("img[id |='little']").css("border", "dotted");
+
+	   // type이 'text'인 input 요소의 테두리 변경
+	   $("input[type='text']").css("border","dotted 5px red");
+	   
+	   });
+   
+   </script>
+</head>
+<body>
+   <a href="http://www.ddit.or.kr">(재)대덕 인재 개발원</a><br><br>
+   <br><br>
+   <a href="mailto:power2c@ddit.or.kr">빠워에게 메일보내</a><br><br>
+   <br><br>
+   
+   <div>
+		<label>Some images:</label><br><br><br>
+	</div>
+   
+   <div style="border">
+	   <img id="img1" alt="1" src="../image/daram.jpg" width="50px" height="50px">
+	   <img id="little" alt="2" src="../image/lion.jpg" width="50px" height="50px">
+	   <img id="little-bear" alt="3" src="../image/cat.jpg" width="50px" height="50px">
+	   <img id="img4" title="name" alt="4" src="../image/ra.jpg" width="50px" height="50px">
+	   <img id="img5" title="named" alt="5" src="../image/mi.jpg" width="50px" height="50px">
+	   <img id="img6" alt="6" src="../image/mol.jpg" width="50px" height="50px">
+	   <img id="img7" alt="7" src="../image/spon.png" width="100px" height="100px"><br>
+   </div>
+	
+	<div id="someDiv">이곳은 ID속성이 someDiv인 div태그 입니다. </div>
+	<form>
+		<div>
+			<label>Text:</label>
+			<input type="text" id="aTextField" name="someTextField"/>
+		</div>
+		<br>
+		<button type="submit" id="submitButton">Submit</button>
+		<input type="button" id="click" value="클릭~~">
+	</form>
+   
+
+</body>
+</html>

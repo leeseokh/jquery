@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+
+	//1. 1부터 10까지의 합을 구하는 프로그램을 작성하시오.
+
+	var sum = 0;
+	for (var i = 1; i < 11; i++) {
+		sum += i;
+		;
+	}
+	document.write("1. "+sum);
+	document.write("<hr>");
+
+	//2. 1부터 200까지의 짝수의 합을 구하는 프로그램을 작성하시오
+
+	var sum = 0;
+	for (var i = 1; i < 201; i++) {
+		if (i % 2 == 0) {
+			sum += i;
+		}
+	}
+	document.write("2. "+sum);
+	document.write("<hr>");
+	
+	document.write("3번은 아래로...");
+	
+	//3. 사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 값을 출력하는 프로그램을 작성하시오.	
+	var sum2= 0;
+	function sumNo() {
+		var num = document.getElementById("inputnum").value;
+		if(num != 0){
+			sum2 += Number(num);
+		}else if(num == 0){
+			document.getElementById("resultSum").innerHTML = sum2;	
+		}
+	}
+	document.write("<hr>");
+
+	//4. 다중 for문을 이용해서 1~ 10 까지 중 i와 k의 더한 합이 3의 배수일때만 출력 continue를 이용
+	 var sum = 0;
+	 for(var i = 1; i < 11; i++ ){ 
+		 for(var k = 1; k < 11; k++){
+			 if((i+k) % 3 == 0 ){
+			 
+			 sum = i+k;
+			 document.write(sum+" ");
+			 
+			 }else{
+			  continue;
+			}	 
+	 	}
+	}
+
+	 
+	 document.write("<hr>");
+	
+	//5. 1~100 까지 중 2의 배수이면서 3의 배수인것만 출력
+	function five(){
+		for(var i = 1; i < 101; i++ ){
+		var sum3 =0; 
+			if(i % 3 == 0 && i % 2 == 0){
+		 			sum3 += i
+		 		}
+			}
+		}
+			document.getElementById("five").innerHTML = sum3;
+			
+			document.write("<hr>");
+
+		//6. 두 수를 입력(prompt) 두수의 합이 100이상 일 때만 출력, continue를 이용 , 두수 모두 0 이 입력되면 종료
+		function sumPrompt(){ 	
+			var sum =0;
+			while (true) {
+				var value1 = prompt("첫번째 숫자를 입력하세요.");
+				var value2 = prompt("두번째 숫자를 입력하세요.");
+			
+				var sum = prompt(parseInt(value1) + parseInt(value2));
+				if (sum >= 100) {		
+					document.getElementById("result").innerHTML = "결과 :" + sum;
+				} else if (value1 == 0 || value2 == 0) {
+					return;	
+				}else{
+					continue;	// 풀지 못했습니다. 죄송합니다!
+				}
+			}
+		}
+		
+/* 		var flag = true;
+		while(flag){
+			var value1 = prompt("첫번째 숫자를 입력하세요.");
+			var value2 = prompt("두번째 숫자를 입력하세요.");
+		}if(( value1 ==0) && (value2== 0)){
+			flag =false;
+		}
+		var sum = parseInt(value1) + parseInt(value2);
+		if (sum >= 100) {		
+			continue;
+		}else{
+			
+		}
+	}
+	document.write(sum); */
+		
+</script>
+</head>
+<body>
+	<p>문제 1</p>
+	<button type="button" onclick="five()">실행</button>
+	<p id="five"></p>
+
+	<p>문제 3: 사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 값을 출력하는 프로그램을 작성하시오.</p>
+	<form>
+		숫자 입력 <input type="text" id="inputnum">
+		<button type="reset" onclick="sumNo()">입력</button>
+		<p id="resultSum"></p>
+	</form>
+	<p>문제 6: 두 수를 입력(prompt) 두수의 합이 100이상 일 때만 출력, continue를 이용 , 두수 모두 0 이 입력되면 종료되는 식을 만드시오.</p>
+	<button type="button" onclick="sumPrompt()">실행</button>	
+</body>
+</html>

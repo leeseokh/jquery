@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+
+
+		var flag = true;
+		var name;
+		var arr = [];
+		while (flag) {
+			name = prompt("이름을 입력해주세요.");
+
+			if ((name == "null") || (name == " ")) {
+				document.write(arr)
+				flag = false;
+			} else {
+				arr.push(name);
+			}
+		}
+		
+		//2
+		 
+		var num = [];
+		var input;
+		while (num.length < 5) {
+				input = prompt("정수를 입력해주세요") 
+				if (num.indexOf(input) < 0) {
+				num.push(input);
+			} else {
+				continue;
+			}
+		}
+		num.sort(function(a, b) {
+			return a - b;
+		});
+		document.write(num);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

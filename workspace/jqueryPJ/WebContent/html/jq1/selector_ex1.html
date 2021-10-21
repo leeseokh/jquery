@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+		<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		//문서준비
+		$(document).ready(function() {
+		//h2 요소들에게 클릭 이벤트 부여
+		//기존 자바는 1건의 이벤트 부여 제이쿼리는 전부 가능
+			$("h2").click(function() {
+					$(this).hide();  //한개의 요소만 사라지게 하기 위해 this 사용.
+						
+				});
+			});	
+		
+		
+	</script>
+</head>
+<body>
+	<h2>클릭하면 사라져요1</h2>
+	<h2>클릭하면 사라져요2</h2>
+	<h2>클릭하면 사라져요3</h2>
+	<h2>클릭하면 사라져요4</h2>
+	<h2>클릭하면 사라져요5</h2>
+	<h2>클릭하면 사라져요6</h2>
+	<h2>클릭하면 사라져요7</h2>
+	<h2>클릭하면 사라져요8</h2>
+	<h2>클릭하면 사라져요9</h2>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	var hobby = "";
+	$(document).ready(function(){
+		$("input").click(function(e){
+			
+			if($(this).prop("checked")){
+				if(hobby.indexOf(e.target.value) < 0){
+					hobby += e.target.value + ", ";
+				}
+			}else{		
+				if(hobby.indexOf(e.target.value) >= 0){
+					hobby = hobby.replace(e.target.value+", ","");
+					
+				}
+			}
+		});
+	});
+	
+	function hbResult() {
+		var length = hobby.length-2
+		var hobby2 = hobby.substr(0,length);
+		alert(hobby2);
+		$("#result").text(hobby2);
+	}		
+		
+	</script>
+</head>
+<body>
+	<form>
+		취미 :
+		<input type="checkbox" id="trip" name="checking" value="여행"><label for="trip">여행</label>&nbsp;&nbsp;
+		<input type="checkbox" id="chess" name="checking" value="장기"><label for="chess">장기</label>&nbsp;&nbsp;
+		<input type="checkbox" id="baduk" name="checking" value="바둑"><label for="baduk">바둑</label>&nbsp;&nbsp;
+		<input type="checkbox" id="reading" name="checking" value="독서"><label for="reading">독서</label>&nbsp;&nbsp;
+		<input type="checkbox" id="fishing" name="checking" value="낚시"><label for="fishing">낚시</label>&nbsp;&nbsp;
+		<button type="button" onclick="hbResult()">전송</button>
+	</form>	
+	<p>선택 결과 : <span id="result"></span></p>
+</body>
+</html>

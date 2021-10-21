@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+
+/* 	 주민등록번호를 입력 받아 생년월일과 성별을 출력하는 프
+		로그램을 작성하시오.(입력은 prompt로 입력받는다.)
+	 예) 주민등록번호를 110326-4432618로 입력 받은 경우
+	 생일 : 2011년 3월 26일
+	 성별 : 여자
+	 나이 : 10살 */
+		
+	
+//		 var rgNo = document.getElementById("rgNo").value;
+		
+		 var rgNo = prompt("입력");
+		 var gender = ["여자", "남자"];
+		 var year = new Date().getFullYear();
+		 var age = (year - 1900);
+		 var a = rgNo.substr(0,2);
+		 if(21 > rgNo.substr(0,2)){
+			 
+		 document.write("나이 :" + (rgNo.substr(0,2) - 1));
+		 document.write("<br>");
+		 document.write("생일: "+ "20"+rgNo.substr(0,2)+ "년"+rgNo.charAt(3)+"월"+ rgNo.substr(4,2)+"일" );	 			 
+		 }else {
+		 document.write("나이 :" + parseInt(age) - rgNo.substr(0,2));
+		 document.write("<br>");
+		 document.write("생일: "+ "19"+rgNo.substr(0,2)+ "년"+rgNo.charAt(3)+"월"+ rgNo.substr(4,2)+"일" );	 			 
+		 
+		 }	
+		 if(rgNo.charAt(7) == 1 || rgNo.charAt(7) == 3){
+			 document.write("성별: "+ gender[1]);
+		 
+		 }else if(rgNo.charAt(7) == 2 || rgNo.charAt(7) == 4){
+			 document.write("성별: "+ gender[0]);			 
+		 }else{
+			 document.write("잘못된 숫자입니다.");	
+		 }
+	
+		 
+		 	//나의표기
+		 	
+		 
+		
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+<!-- 	<div>
+		<input type="text" id="rgNo">
+		<button type="button" onclick="reg_No">실행</button>
+		<p>성별<span id="gender"></span></p>
+		<p>나이<span id="age"></span></p>
+		<p>생일<span id="birth"></span></p>
+	</div> -->
+</body>
+</html>

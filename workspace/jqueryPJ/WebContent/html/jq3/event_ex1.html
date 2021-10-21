@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//p태그에 클릭 이벤트 추가
+			
+			$("p").click(function(e) {
+				//this // ==> <p>요소
+				console.log(e);		//event 객체
+				console.log(e.type);	//click
+				console.log(e.target);	//<p>
+			
+				console.log(e.button);	
+				
+				console.log(e.pageX);	//
+				console.log(e.pageY);	//
+				console.log(e.screenX);	//
+				console.log(e.screenY);	//
+			});
+			
+			$("#tmp1").mouseenter(function() {
+				$(this).css("background-color", "yellow");
+			});
+			$("#tmp1").mouseleave(function() {
+				$(this).css("background-color", "green");
+			});
+			
+			//'on으로 이벤트 여러개 부여하기'
+			$("tmp2").on({
+				mouseenter : function() {
+					$(this).css("background-color", "orange");
+				}
+				,mouseleave : function() {
+					$(this).css("background-color", "gray");
+				}
+			});				
+		});
+				
+					
+	</script>
+</head>
+<body>
+	<p>j쿼리 이벤트를 배워봅시다~</p>
+	<p id="tmp1">이벤트</p>
+	<p id="tmp2">on이벤트</p>
+</body>
+</html>

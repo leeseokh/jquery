@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//assign(url) : 새로운 문서를 로드한다.
+		//reload 현재문서를 다시 로드한다
+		//replace(url): 현재문서를 새로운 문서로 대체한다(history 초기화) 뒤로가기가 더 이전화면으로 감.
+		
+		function movePage() {
+			val url ="https://www.naver.com";
+			//case1
+			location.href = url;
+			
+			//case2
+			location.assign(url);
+			
+			//case3	현재 페이지가 history에 남지 않음(현재 페이지를 url로 대체하는 거라서)
+			location.replace(url);
+		}
+	</script>
+	
+</head>
+<body>
+	
+</body>
+</html>

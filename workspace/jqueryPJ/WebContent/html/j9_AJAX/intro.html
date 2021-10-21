@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Web Programming</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		console.log(window.location);
+		console.log(location.href);
+		var url = location.href;
+		
+		var userName = "";
+		var userAge = "";
+		
+		// url에 ?가 있다면
+		if(url.indexOf("?") > -1) {
+			var params = url.split("?")[1]; // ["~", "~"] => "userId=123&userName=1223&..."
+			var arr = params.split("&");// ["userId=123", "userName=1223", "..."]
+			for(var i=0 ; i<arr.length ; i++){
+				var arr1 = arr[i].split("="); // "userId=123" => ["userId", "123"]
+				
+				if(arr1[0] == "name"){
+					userName = arr1[1];
+				}else if(arr1[0] == "age"){
+					userAge = arr1[1];
+				}
+				
+			}
+			
+		}
+		
+		// ~~~~
+// 		var userName = getValueByUrl(url, "name");
+// 		var userAge = getValueByUrl(url, "age");
+// 		var userId = getValueByUrl(url, "id");
+// 		var userHp = getValueByUrl(url, "hp");
+// 		var userPassword = getValueByUrl(url, "password");
+		//~~~
+		
+		alert("올해 " + userAge + "살인 " + userName + "님 반갑습니다!");
+		
+		$(document).ready(function(){
+			$("#userName").text(userName);
+		});
+		
+	</script>
+</head>
+<body>
+	<p>로그인 : <span id="userName">홍길동</span>님</p>
+	<h1>Welcome to the Web Programming!</h1>
+	<br>
+	<p>
+		언제든지 오셔서 질문이 있으시면 올려주세요! <em>환영합니다!!!</em>
+	</p>
+	<h2>내용</h2>
+	<p>HTML5, CSS3, Javascript, jQuery, SQL, JSP, ...</p>
+	<h2>기간</h2>
+	<p>2021.03.10~2021.10.21</p>
+	<h2>장소</h2>
+	<p>대덕인재개발원</p>
+</body>
+</html>

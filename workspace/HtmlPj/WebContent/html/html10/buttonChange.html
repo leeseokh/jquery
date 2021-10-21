@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img{
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	function changeImage() {
+		var but = document.getElementById("bt");
+		if (but.src.match("sw_off")) {
+			but.src = "image/sw_on.png";
+		} else {
+			but.src = "image/sw_off.png";
+		}
+	}
+	
+	//선생님 코드
+	function c{
+		//		var butt = document.getElementsByTagName("image")[0]; //여기까지 이미지
+		var butt = document.getElementsByTagName("image")[0].src; 
+		
+		if(imgUrl.indexOf("_off.png") > -1 ){
+			//'~_off.png 인경우
+			imgUrl = imgUrl.replace("_off.png", "_on.png");				
+		}else if(imgUrl.indexOf("on.png") > -1){
+			imgUrl = imgUrl = imgUrl.replace("_off.png", "_on.png");	
+		}
+		 
+
+		}
+	
+		document.getElementsByTagName("image")[0].src = imgUrl;
+	}
+	
+	function ch(obj){
+		console.log(obj); //<img>
+		console.log(obj.src); //<img>
+			//아래에는 changeSwitch()  처럼 작업~
+			var arr = ["sw_off.png", "sw_on.png"]
+			
+			var strSrc =obj.src;
+			if(strSrc.indexOf(arr[0]) > -1){
+				strSrc= 리플레이스 배열 
+			}else{
+				strSrc = 리플레이스 배열
+			}
+			obj.src =strSrc;
+	}
+	</script>
+</head>
+<body>
+	<img id="bt" onclick="changeImage()" alt="button" src="image/sw_off.png">
+
+선생님 코드<img alt="스위치" src="image/sw_off.png" onclick="change">
+선생님 코드<img alt="스위치" src="image/sw_off.png" onclick="change">
+</body>
+</html>

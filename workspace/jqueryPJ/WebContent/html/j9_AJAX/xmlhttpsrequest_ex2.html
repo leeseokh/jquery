@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<!-- <button type="button" onclick="setGetByAsynch()">GET 비동기 전송</button> -->
+	<button type="button" onclick="setGet(true)">GET 비동기 전송</button>
+	<button type="button" onclick="setGet(false)">GET 동기 전송</button>
+	<br>
+	<button type="button" onclick="setPost(true)">POST 비동기 전송</button>
+	<button type="button" onclick="setPost(false)">POST 동기 전송</button>
+	<div id="result"></div>
+</body>
+<script type="text/javascript">
+//	function setGetByAsynch(){
+	function setGet(isAsynch) {
+		var url="json_baisc.html"	
+		var xhttp = new XMLHttpRequest();
+		//비동기 방식일 경우 'onreadystatechange' 가 'send' 뒤에 정의되있어도 정상 동작
+		//But! 동기 방식일 경우 'onreadystatechange'가 'send' 뒤에 정의되면 정상동작 X
+		//동기 방식이기 때문에 'send'에 대한  결과를 받은 다음 'onreadystatechange'가 수행 되기 때문에
+		
+//		xhttp.open("GET", "json_basic.html", true);	//GET방식, 비동기 요청
+
+		//서버가 데이터를 전부 받아서, 처리결과가 성공
+		xhttp.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				$("#result").html(this.responseText);	
+			}
+		}
+		xhttp.open("GET", url + "?pName=hong&pId=test" ,  isAsynch);
+		xhttp.send();
+	}
+	
+	function setPost(isAsynch) {
+		var url="json_baisc.html"	
+		var xhttp = new XMLHttpRequest();
+		//비동기 방식일 경우 'onreadystatechange' 가 'send' 뒤에 정의되있어도 정상 동작
+		//But! 동기 방식일 경우 'onreadystatechange'가 'send' 뒤에 정의되면 정상동작 X
+		//동기 방식이기 때문에 'send'에 대한  결과를 받은 다음 'onreadystatechange'가 수행 되기 때문에
+		
+//		xhttp.open("GET", "json_basic.html", true);	//GET방식, 비동기 요청
+
+		//서버가 데이터를 전부 받아서, 처리결과가 성공
+		xhttp.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				$("#result").html(this.responseText);	
+			}
+		}
+		xhttp.open("POST", url,  isAsynch);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("name=홍길동&age=30");
+	}
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function changeColor () {
+			//h1 글자색 변경
+			$("h1").css("color","red");
+			$("h1").css("background-color","gray");
+			$("h1").css("padding-left","0px");
+			
+			$("h3").css("color", "pink").css("background-color", "black");
+			
+		}
+		function hideElement () {
+			//h3 숨기기	
+			$("h3").hide();
+		}
+		
+		function showElement () {
+			//h3을보이기
+			$("h3").show();
+		}
+		//문서 로드가 완료되면 수행하는 방법
+		//방법1
+		$(document).ready(function() {
+			$("body").css("background", "gray");
+		});
+		//방법2
+		$(function() {
+			$("body").css("background", "black");
+		});
+		//방법3
+		
+		
+	</script>
+</head>
+<body>
+	<h1 style= "color: hotpink">안녕</h1>
+	<h1 style= "color: aqua;" >jquery</h1>
+	<h1 style="background-color: orange; padding-left: 50px;">재밌을까?</h1>
+	<h3>글쎄다</h3>
+	<h3>난 모르겠는데?</h3>
+	<button type="button" onclick="changeColor()">색변경</button>
+	<button type="button" onclick="hideElement()">숨기기</button>
+	<button type="button" onclick="showElement()">보이기</button>
+	
+</body>
+</html>

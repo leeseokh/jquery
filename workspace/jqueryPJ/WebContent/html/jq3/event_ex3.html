@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <style type="text/css">
+      #ex3 img {
+         height: 100px;
+      }
+      #ex3 button {
+         display: none;
+      }
+      div.ex {
+         border: 2px solid gray;
+         padding: 10px;
+         background-color: black;
+      }
+   </style>
+   <script src="jquery-3.6.0.js"></script>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $("img").on({
+            mouseover : function(){}
+            ,mouseout : function(){
+               $(this)
+            }
+            ,dblclick : function(){
+               $(this).hide();
+            }
+         });
+      });
+   </script>
+</head>
+<body>
+   <div id="ex3" class="ex">
+      <img id="img1" alt="" src="image/cat.jpg">
+      <img id="img2" alt="" src="image/ra.jpg">
+      <img id="img3" alt="" src="image/lion.jpg">
+      <button type="button" style="display: none;">보이기</button>
+   </div>
+</body>
+<script type="text/javascript">
+   
+//    $("img").on({
+//       dblclick:function(){}
+//       ,mouseover:function(){}
+//       ,mouseout:function(){}
+//    })
+
+   var orgSrc = ""; // 원본 이미지 src
+   
+   $("img").mouseover(function(e){
+      // this ==> <img> 객체
+      // e ==> event 객체
+      // e.target ==> <img> 객체
+      
+      // mouseout이벤트에서 사용하기 위해서 전역변수로 세팅
+      orgSrc = e.target.src;
+      e.target.src = "image/daram.jpg";
+//       this.src = "~";
+      
+      // 참고 : javascript 방식
+//       document.getElementById("img3").src = "~";
+//       document.getElementById("userId").value = "~";
+//       document.getElementById("pDemo").innerHTML = "~";
+      
+   });
+   $("img").mouseout(function(e){
+      // 원래 파일로 바꾸기
+      this.src = orgSrc;
+   });
+   
+   $("img").dblclick(function(){
+      $(this).hide();
+      
+      // 이미지가 다 숨겨졌으면 버튼이 보이기
+      var imgCnt = $("img").length;
+      
+      var hiddenCnt = 0;
+      // 방법1)
+//       $("img").each(function(idx, item){
+//          if($(item).css("display") == "none"){
+//             hiddenCnt++;
+//          }
+//       });
+      // 방법2)
+      hiddenCnt = $('img[style="display: none;"]').length;
+      
+      // 이미지가 전부 숨김 상태이면
+      if(imgCnt == hiddenCnt){
+         $("button").show();
+      }
+      
+      
+   });
+   
+   $("button").click(function(){
+      $(this).hide();
+      $("img").show();
+   });
+   
+</script>
+</html>

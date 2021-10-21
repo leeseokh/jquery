@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var str1 = "우리나라 대한민국 좋은나라";
+		document.write(str1);
+		//str.substr
+		//str.substring
+		//str.slice =>> 공백 포함
+		//str.replaceAll("나라", "엄마")
+		//"나라를 > 엄마란 키워드로"
+		//str.split("나라") =>> 나라 기준을 쪼갬
+		// >> ["우리", "대한민국 좋은", ""] 0,1,2 length :3
+		//trim() 좌우 공백 제거
+		
+		
+		function changeText() {
+			// p요소 안의 내용을 변환해서 div 요소에 넣기
+			var str = document.getElementById("pTemp").innerHTML; // " One,Two,Three,Four,Five "
+			str = str.trim(); 
+			var arr = str.split(","); // ["One", "Two", "Three", "Four", "Five"] :배열로 바뀜.
+			
+			var html = "";
+			for(var i =0; i <arr.length; i++){
+//				arr[i] // "One" : 문자열
+//				arr[i].toLowerCase() // "One" : 문자열
+				var tmp = (i+1) + "-" + arr[i].toLowerCase(); //소문자
+				html += tmp + "<br>"
+			}
+			document.getElementById("divTemp").innerHTML = html;	
+		}
+	
+	</script>
+</head>
+<body>
+	<p id="pTemp">One,Two,Three,Four,Five</p>
+	<button type="button" onclick="changeText()">변환하기</button>
+	<div id="divTemp">
+		<!--
+		1-One
+		2-Two
+		3-Three
+		4-Four
+		5-Five
+		 -->
+	</div>
+</body>
+</html>

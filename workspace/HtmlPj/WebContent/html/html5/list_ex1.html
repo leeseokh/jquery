@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.sample1{
+			list-style-type: circle;
+			list-style-image: url("../../images/coffee.jfif") /* 글자에 체킹 넣어주기 */
+		}
+		.sample2{
+			list-style-type: lower-roman;
+			list-style-position: inside;
+		}
+		ul.menu{
+			border-top: 1px solid red;
+			border-bottom: 1px solid red;
+			padding: 10px 0px;
+			text-align: center;
+		}
+		.menu li{
+			text-transform: uppercase;
+			display: inline;
+			border: 1px solid;
+			padding: 2px 5px;
+			letter-spacing: 5px; /* 글자0사이사이 간격  */ 
+			margin: 0px 10px; /* 글 박스 전체 간격  */
+		}
+		.menu li a{
+			text-decoration: none;/* 밑줄 없애기 */
+			color: black
+		}
+		.menu li :hover{
+			background-color: yellow;  
+		}
+	
+	</style>
+</head>
+<body>
+	<ul>
+		<li>감자</li>
+		<li>고구마</li>
+		<li>호박</li>
+	</ul>	
+	<hr>
+	<ul class="sample1">
+		<li>감자</li>
+		<li>고구마</li>
+		<li>호박</li>
+	</ul>
+	<ol class="sample2">
+		<li>감자</li>
+		<li>고구마</li>
+		<li>호박</li>
+	</ol>
+	<hr>
+	<ul class="menu">
+		<li><a href="">home</a></li>
+		<li><a href="">blog</a></li>
+		<li><a href="">about</a></li>
+		<li><a href="">contact</a></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc(type){
+			var strUrl = "";
+			var strDataType = "";
+			
+			if(type == "TEXT"){
+				strUrl = "../jq9_data/data_text.txt";
+				strDataType = "text";
+				
+			}else if(type == "HTLM"){
+				strUrl = "intro.html";
+				strDataType = "html";
+				
+			}else if(type == "JSON"){
+				strUrl = "../jq9_data/data_json.jsp";
+				strDataType = "json";
+				
+			}else if(type == "XML"){
+				strUrl = "../jq9_data/data_xml.xml";
+				strDataType = "xml";
+				
+			}
+			
+			$.ajax({
+				url: strUrl
+				,type: "post"
+// 				,data: ""
+				,dataType: strDataType // text, html, json, xml
+				,success: function(data){
+					console.log(data);
+					alert("성공");
+					
+					makeResult(type, data);
+				}
+				,error: function(xhr){
+					console.log(xhr);
+					alert("오류");
+				}
+			});
+			
+		}
+		
+		function makeResult(type, data){
+			if(type == "TEXT" || type == "HTML"){
+				$("#result").html(data);
+			}else if(type == "JSON"){
+				$("#result").text(data);
+				// 결과 obj로 뭔가 만들기
+				$("#result").append(data.name + "님 반갑습니다.");
+			
+			}else if(type == "XML"){
+				// data ==> document
+				// document.getElementsByTagName("p");
+// 				var obj = data.getElementsByTagName("LUNCH");
+// 				console.log(obj);
+// 				var obj1 = data.getElementsByTagName("NAME");
+// 				console.log(obj1);
+				
+// 				for(var i=0 ; i<obj1.length ; i++){
+// 					console.log(obj1[i]);
+// 					console.log(obj1[i].innerHTML);
+// 					console.log("=====================");
+// 				}
+
+				var list = data.getElementsByTagName("LUNCH");
+				
+				var strHtml = "<tr>"
+							+ "	<th>메뉴명</th>"
+							+ "	<th>가격</th>"
+							+ "</tr>";
+				
+				for(var i=0 ; i<list.length ; i++){
+					// childNodes, children, getElementsByTagName
+					
+					var objName = list[i].getElementsByTagName("NAME")[0]; // <NAME>참치마요</NAME>
+					var objPrice = list[i].getElementsByTagName("PRICE")[0]; // <NAME>참치마요</NAME>
+					console.log(objName);
+					console.log(objName.innerHTML); // 참치마요
+					
+					console.log("--------------------");
+					console.log(objName.children); // 없음
+					console.log(objName.childNodes); // [ text ]
+					console.log(objName.childNodes[0]); // [ text ]
+					console.log(objName.childNodes[0].data); // 참치마요
+					console.log(objName.childNodes[0].nodeValue); // 참치마요
+					console.log(">>>>>>>>>>>>>>>>>>>>>");
+					
+					var name = objName.innerHTML;
+					var price = objPrice.innerHTML;
+					
+					strHtml += "<tr>"
+							+ "	<td>" + name + "</td>"
+							+ "	<td>" + price + "</td>"
+							+ "</tr>";
+				}
+				
+				$("#tb").html(strHtml);
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>각 버튼 클릭 시, ajax 호출하고 다른 유형으로 데이터 받기 </p>
+	<button type="button" onclick="proc('TEXT')">텍스트</button>
+	<button type="button" onclick="proc('HTLM')">HTML</button>
+	<button type="button" onclick="proc('JSON')">JSON</button>
+	<button type="button" onclick="proc('XML')">XML</button>
+	<hr>
+	<div id="result"></div>
+	<hr>
+	<div id="resultTable">
+		<table id="tb" border="1">
+			<tr>
+				<th>메뉴명</th>
+				<th>가격</th>
+			</tr>
+<!-- 			<tr> -->
+<!-- 				<td>참치마요</td> -->
+<!-- 				<td>1000원</td> -->
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>참치마요</td> -->
+<!-- 				<td>1000원</td> -->
+<!-- 			</tr> -->
+		</table>
+	</div>
+</body>
+</html>

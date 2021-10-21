@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FILE 요소 사용하기</title>
+	<script type="text/javascript">
+		function getFileInfo(){
+			var obj = document.getElementById("attachFile"); // <input type="file">
+			var fileList = obj.files; // File list // []
+			
+			if(fileList == null || fileList.length == 0) {
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			
+			
+			var file = fileList[0]; // File
+			console.log(file);
+			
+			var str = "변경일시 : " + file.lastModifiedDate
+			+ "\n파일명 : " + file.name
+			+ "\n파일크기 : " + file.size
+			+ "\n파일유형 : " + file.type;
+			
+			document.getElementById("result").value = str; 
+			
+		}
+		
+		function readFile(){
+			var fileList = document.getElementById("attachFile").files;
+
+			if(fileList == null || fileList.length == 0) {
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			
+			var file = fileList[0];
+			var reader = new FileReader();
+			reader.readAsText(file); // reader의 result에 file을 read해서 세팅
+			reader.onload = function (){
+				document.getElementById("result1").value = reader.result;
+			};
+			
+		}
+		function readFile2(){
+			var fileList = document.getElementById("attachFile").files;
+
+			if(fileList == null || fileList.length == 0) {
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			
+			var file = fileList[0];
+			var reader = new FileReader();
+			reader.readAsDataURL(file); // reader의 result에 file을 read해서 세팅
+			reader.onload = function (){
+				document.getElementById("result2").innerHTML = reader.result;
+// 				document.getElementById("resultImg").src = reader.result;
+			};
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="file" id="attachFile" name="attachFile">
+	<br>
+	<button type="button" onclick="getFileInfo()">파일정보</button>
+	<button type="button" onclick="readFile()">파일읽기</button>
+	<button type="button" onclick="readFile2()">파일읽기2</button>
+	<br>
+	<textarea rows="10" cols="50" id="result"></textarea>
+	<textarea rows="10" cols="50" id="result1"></textarea>
+	<textarea rows="10" cols="50" id="result2"></textarea>
+
+<!-- 	<img id="resultImg"> -->
+</body>
+</html>

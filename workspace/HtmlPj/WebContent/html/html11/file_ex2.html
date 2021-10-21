@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>File API 예제3</title>
+	<style type="text/css">
+		div {
+			background-color: LightGray;
+			padding: 7px;
+		}
+		button {
+			background-color: blue;
+			color: white;
+			border-radius: 15px;
+		}
+		img {
+			width: 30%;
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		<input type="file" id="attachFile" name="attachFile">
+		<button type="button" onclick="readFile()">읽기</button>
+	</div>
+	<br>
+	<div>
+		<h1>결과 출력(FileReader 객체)</h1>
+		<p>이미지파일일 경우에는 DataURL형식으로 아닌경우 Text형식으로</p>
+		<textarea id="result" rows="10" cols="50"></textarea>
+	</div>
+	<br>
+	<div>
+		<h1>파일 정보(File객체)</h1>
+		<p>이미지 파일을 읽은 경우에 이미지가 표시된다. 다른 파일을 읽었을 경우 이미지가 표시되지 않는다.</p>
+		<img id="resultImg">
+		<br>
+		<textarea id="result1" rows="10" cols="50"></textarea>
+	</div>
+</body>
+	<script type="text/javascript">
+	function readFile(){
+		document.getElementById("result1").value = "";
+		document.getElementById("result").value = "";
+		
+		
+		var obj = document.getElementById("attachFile"); // <input type="file" id="attachFile" name="attachFile">
+		var fileList = obj.files; // 배열 형태의 파일 리스트 // [] // File list
+		
+		if(fileList == null || fileList.length == 0 ){
+			alert("선택된 파일이 없습니다.");
+			return;
+		}
+		var file = fileList[0]; // File 객체
+		console.log(file);
+		
+		var str = "변경일시 : " + file.lastModifiedDate
+		+ "\n파일명 : " + file.name
+		+ "\n파일크기 : " + file.size
+		+ "\n파일유형 : " + file.type;
+		
+		document.getElementById("result").value = str;	
+		var fileList = document.getElementById("attachFile").files;
+		
+		if(fileList == null || fileList.length == 0 ){
+			alert("선택된 파일이 없습니다.");
+			return;
+		}
+		
+		var file = fileList[0];
+		var reader = new FileReader();
+		if(file.type.indexOf("image")==-1){
+			reader.readAsText(file); // reader의 result에 file을 read해서 세팅
+			reader.onload = function (){
+				document.getElementById("result1").value = reader.result;
+				document.getElementById("resultImg").src = "";	
+			}
+		}else{
+			
+			reader.readAsDataURL(file);
+			reader.onload = function (){
+				document.getElementById("resultImg").src = reader.result;	
+			}
+		}
+		
+	}
+	</script>
+</html>

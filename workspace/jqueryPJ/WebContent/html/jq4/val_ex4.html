@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img{
+			height: 300px;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("p").click(function() {
+				
+			var objimg = $("<img>");
+			var imgRoot = "image/";
+			
+			$(this).append(objimg);
+			
+			//이미지에 alt,src 속성  주기
+			
+			var str = this.title;
+			objimg.attr("alt",str);
+			objimg.attr("src",imgRoot+ str);
+
+			});
+		});
+		
+	</script>
+</head>
+<body>
+	<p title="sea.jfif">바다</p><br>
+	<p title="lion.jpg">사자</p><br>
+	<p title="tiger.jpg">호랑이</p><br>
+	<p title="spongebob.jpg">스폰지</p><br>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			height: 200px;
+			border:1px solid;
+		}
+		img{
+			height: 150px;
+		}
+	</style>
+	<script type="text/javascript">
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+		
+		function drop(ev){
+			ev.preventDefault();
+			ev.target.appendChild(obj);
+			
+			obj = null;
+	
+		}
+		var targetObj;
+		
+		function drag(obj) {
+			targetObj = obj;
+		}
+	</script>
+</head>
+<body>
+	<div id="tmp" ondragover="allowDrop(event, this)" ondrop="drop(event)"></div>
+	<img id="dr1" alt="커피" src="coffee.jfif" draggable="true" ondragenter="drag(event)">
+	<img id="dr2" alt="스폰지밥" src="spongebob.jpg" draggable="true" ondragenter="drag(event)">
+</body>
+</html>

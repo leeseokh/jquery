@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- namespace속성 : 아래에서 작성한 SQL을 호출할 때 같이 사용된다. -->			
+<sqlMap namespace="board">
+
+	<resultMap class="boardVO" id="boardMap">
+	 	<result property="boardNo" column="board_no"/>
+	 	<result property="boardWriter" column="board_writer"/>
+	 	<result property="boardTitle" column="board_title"/>
+	 	<result property="boardDate" column="board_date"/>
+	 	<result property="boardContent" column="board_content"/>
+	 </resultMap>
+
+	<insert id="insertBoard" parameterClass="boardVO">
+	INSERT INTO JDBC_BOARD 
+    (BOARD_NO, BOARD_WRITER, BOARD_TITLE, BOARD_DATE, BOARD_CONTENT)
+    VALUES (board_seq.nextval, #boardWriter#, #boardTitle#, sysdate, #boardContent#) 
+	</insert>
+	
+	<delete id="deleteBoard" parameterClass="String">
+	DELETE FROM JDBC_BOARD WHERE BOARD_NO = #boardNo# 
+	</delete>
+
+	<update id="updateBoard" parameterClass="boardVO">
+	UPDATE JDBC_BOARD
+	   SET BOARD_TITLE = #boardTitle# ,
+	       BOARD_CONTENT = #boardContent# 
+     WHERE BOARD_NO = #boardNo#
+	</update>
+
+	
+	<select id="getBoardAll" resultMap="boardMap">
+		select * from JDBC_BOARD
+	</select>
+	
+	<select id="getBoard" resultClass="int">
+		SELECT COUNT(*) CNT  
+		  FROM JDBC_BOARD
+		 WHERE BOARD_NO = #boardNo# 
+	</select>
+
+	<select id="SearchBoard" parameterClass="boardVO" resultMap="boardMap">
+	 SELECT * FROM JDBC_BOARD WHERE 1=1
+	 
+	 	<isNotEmpty property="boardWriter">
+	 		AND BOARD_WRITER = #boardWriter#
+	 	</isNotEmpty>
+	 	
+	 	<isNotEmpty property="boardTitle">
+	 		AND BOARD_TITLE = #boardTitle#
+	 	</isNotEmpty>
+	 	
+	 	<isNotEmpty property="boardContent">
+	 		AND BOARD_CONTENT LIKE '%' || #boardContent# || '%'
+	 	</isNotEmpty>
+	
+	</select>
+
+</sqlMap>			

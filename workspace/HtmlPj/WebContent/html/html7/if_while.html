@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//현재 시간을 가지고 와서
+		var currHour = new Date().getHours();
+		
+		//영어로 인사메시지(alert)		
+		//12시 이전이면 굿모닝
+		var msg="";
+		if(currHour < 12){
+//			alert("Good morning~");
+			msg = "good morning"
+		} else if(currHour <18){
+			alert("Good afternoon");
+		}else
+			alert("Good evening");
+		//18시 이전이면 굿애프터눈
+		//그외는 굿이브닝
+		
+//		alert(msg);
+		document.write(msg);
+	
+//		switch 사용
+		var grade = prompt("학점을 입력하세요.", "A~F 사이의 문자로 입력");
+		
+		//학점이 a일때 참 잘했어요
+		//학점이 b일때 잘했어요
+		//학점이 c일때 잘~했다 참
+		
+		switch (grade) {
+		case "a":
+			alert("참잘했어요");
+			break;
+		case "b":
+			alert("잘했어요");
+			break;
+		}
+		case "c:
+			alert("잘~했다 참");
+			break;
+		case "d:
+		alert("어휴");
+		break;
+		case "f:
+		alert("ㅉㅉㅉ");
+		break;
+			
+		default"
+			alert("입력 값 오류(입력값:"+grade")");
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

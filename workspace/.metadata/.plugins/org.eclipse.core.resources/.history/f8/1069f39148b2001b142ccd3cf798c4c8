@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+			1. 사람 이름을 계속 입력 받아 배열에 저장하고 그 저장된 이름을 출력하는 프로그램을 작성하시오.(단, 입력은 prompt
+			       명령을 이용하고, 입력의 마지막은 공백문자를 입력하거나 "취소" 버튼을 눌렀을 때로 한다. "취소" 버튼은 null 이 입력될 때이다.)
+		*/	
+		
+		var flag = true;
+		var name;
+		var arr = [];
+		while (flag) {
+			name = prompt("이름을 입력해주세요.");
+
+			if ((name == "null") || (name == " ")) {
+				document.write(arr)
+				flag = false;
+			} else {
+				arr.push(name);
+			}
+		}
+		/*	              
+			2. 서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오.
+		 */
+		var flag = true;
+		var input;
+		var num = [4];
+		while(flag) {
+				name = prompt("정수 5개를 입력해주세요");
+			if(num.length > 3){
+				document.write(num);
+				flag = false;
+				}else{
+					num.indexOf(input);	
+				}
+			}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

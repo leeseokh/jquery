@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>	
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	//화면 로딩
+	//버튼 클릭
+	//이미지 추가
+	$(document).ready(function() {
+		$("body").append('<button type="button">이미지추가');
+		
+		var	image = ('<img alt="sp" src="spongebob.jpg"> <hr>');
+		$("button").click(function() {
+			$("body").append(image);
+			
+		});	
+	});
+	
+	
+	//선생님 코드
+	
+	//이미지 추가
+	function addImg() {
+		//요소 생성 2
+		var ele = $("<img>",{
+			"src" : "~"
+			,"alt" : "~"
+		}); // src, alt, width, height
+		ele.css("width", "200").css("height", "150");
+	}
+		
+	
+	
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

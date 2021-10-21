@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>Insert title here</title>
+
+	<script type="text/javascript">
+	var result =" ";
+	
+	var flag = true;
+	while(flag){
+		var value1 = prompt("첫번째 숫자를 입력하세요.");
+		var value2 = prompt("두번째 숫자를 입력하세요.");
+	if(( value1 ==0) && (value2== 0)){
+		flag =false;
+	}
+	var sum = parseInt(value1) + parseInt(value2);
+	if (sum =< 100) {		
+		continue;
+	}else{
+		result +=sum
+		
+	}
+}
+document.write(result);
+	</script>
+
+</head>
+
+<body>
+
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc(type) {
+			var strUrl= "";
+			var strDataType="";
+			if(type == "TEXT"){
+				strUrl = "data_text";
+				strDataType = "text";
+		
+			}else if(type == "HTML"){
+				strUrl = "intro.html";
+				strDataType = "html";
+			
+			}else if(type == "JSON"){
+				strUrl = "data_json.txt";
+				strDataType = "text";
+			}else if(type == "XML"){
+				strUrl = "data_xml.xml";
+				strDataType = "xml";
+			}
+			
+			
+			$.ajax({
+				url: strUrl
+				,type:"post"
+//				,data:""
+				,dataType:strDataType
+				,success: function(data) {
+					console.log(data);
+					alert("성공");
+					
+					makeResult(type, data);		
+				}
+				,error: function(xhr) {
+					console.log(xhr);
+					alert("실패");
+				}
+			});
+		}
+		
+		function makeResult(type, data) {
+			if(type == "TEXT" || type =="HTML"){
+				$("#result").html(data);
+			
+			}else if(type == "JSON"){
+				$("#result").text(data);
+				
+				//결과 obj로 뭔가 만들기
+				$("#result").append(data.name + "님 반갑습니다.");						
+			}else if(type == "XML"){
+				//data ==> document
+				//data.getElementsByTagName("LUNCH");
+				//console.log(obj);
+				//var obj1 = data.getElementsByTagName("NAME");
+				//console.log(obj1);
+				
+				//for(var i=0; i<obj1.length; i++){
+					//console.log(obj1[i]);
+					//console.log(obj1[i].innerHTML);
+					//console.log("--------------------");
+				//}
+				
+				var list = data.getElementsByTagName("LUNCH");
+				
+				var strHtml = "";
+				for(var i=0; i<list.length; i++){
+				//~ : childNode, children 	
+					var name = (list[i].getElementsByTagName("NAME")[0].innerHTML);
+					var price = (list[i].getElementsByTagName("PRICE")[0].innerHTML);
+					
+					
+//	선생님코드			var OBname = (list[i].getElementsByTagName("NAME")[0]);
+//	선생님코드			var OBprice = (list[i].getElementsByTagName("PRICE")[0]);
+					
+					
+/* 					console.log(name.innerHTML); // 참치마요
+					console.log(name.children); // text
+					console.log(name.childNodes); // text
+					console.log(name.childNodes[0]); // text
+					console.log(name.childNodes[0].data); // 참치마요 */
+					
+//	선생님코드			var name = OBname.innerHTML;
+//	선생님코드			var price = OBprice.innerHTML;
+
+ 					strHtml += "<tr>"
+							+"<td>" + name + "</td>" 
+							+"<td>" + price + "</td>" 
+							+"</tr>";  
+				}
+					$("#tb").append(strHtml);
+				
+//선생님코드			$("#tb").html(strHtml);
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>각 버튼 클릭 시, ajax 호출하고 다른 유형으로 데이터 받기</p>
+	<button type="button" onclick="proc('TEXT')">텍스트</button>
+	<button type="button" onclick="proc('HTML')">HTML</button>
+	<button type="button" onclick="proc('JSON')">JSON</button>
+	<button type="button" onclick="proc('XML')">XML</button>
+	<hr>
+	<div id="result"></div>
+	<hr>
+	<div id="resultTable">
+		<table border="1" id="tb">
+			<tr>
+				<th>이름</th>
+				<th>가격</th>
+			</tr>
+
+
+<!-- 			<tr>
+				<td>참치마요</td>
+				<td>1000원</td>
+			</tr>
+			<tr>
+				<td>죽</td>
+				<td>2000원</td>
+			</tr> -->
+		</table>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

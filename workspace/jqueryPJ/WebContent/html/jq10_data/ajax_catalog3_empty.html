@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table, td, th {
+			border-collapse: collapse;
+			border: 2px solid blue;
+			background-color: skyblue;
+			color: white;
+		}
+		table {
+			width: 50%;
+			text-align: center;
+		}
+	</style>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>	
+	<script type="text/javascript">
+		function makeList(flag) {
+			$.ajax({
+				url: "cd_catalog.xml"
+				,type:"post"
+//				,data:""
+				,dataType:"xml"
+				,success: function(data) {
+					console.log(data);
+					if(flag == 1){	//노래제목
+						makeTitleTable(flag, data);
+					
+					}else{	//노래정보 목록
+						makeTable(flag, data);	
+					}
+
+				}
+				,error: function(xhr) {
+					console.log(xhr);
+					alert("실패");
+				}
+			});
+			
+		}
+		function makeTitleTable(flag, data) {
+			var list = data.getElementsByTagName("CD");
+
+			$("#result").html("");
+
+			if(flag == 1) {
+				var strHtml = "";
+
+				strHtml = "<table>" + "<tr>" + "<th>번호</th>" + "<th>제목</th>"
+						+ " </tr>";
+
+				for (var i = 0; i < list.length; i++) {
+
+					var title = (list[i].getElementsByTagName("TITLE")[0].innerHTML);
+
+					strHtml += "<tr>" + "<td>" + (i + 1) + "</td>" + "<td>" + title
+							+ "</td>" + "</tr>";
+				}
+				strHtml +="</table>"
+			}
+			$("#result").append(strHtml);
+		}
+		
+		function makeTable(flag, data) {
+			var list = data.getElementsByTagName("CD");
+			
+			$("#result").html("");
+			
+			if(flag == 2){
+				var strHtml="";
+				
+				strHtml = "<table>" + "<tr>" +  "<th>번호</th>" + "<th>제목</th>" + "<th>가수</th>" 
+						+ "<th>국적</th>" + "<th>회사</th>" + "<th>앨범 가격</th>" + "<th>출간년도</th>"
+				+ " </tr>";
+				
+				for (var i = 0; i < list.length; i++){
+					var title = (list[i].getElementsByTagName("TITLE")[0].innerHTML);
+					var art = (list[i].getElementsByTagName("ARTIST")[0].innerHTML);
+					var cou = (list[i].getElementsByTagName("COUNTRY")[0].innerHTML);
+					var com = (list[i].getElementsByTagName("COMPANY")[0].innerHTML);
+					var pri = (list[i].getElementsByTagName("PRICE")[0].innerHTML);
+					var year = (list[i].getElementsByTagName("YEAR")[0].innerHTML);
+
+					strHtml += "<tr>" + "<td>" + (i + 1)+ "</td>"
+								      + "<td>" + title  + "</td>" 
+									  + "<td>" + art  + "</td>" 
+							          + "<td>" + cou  + "</td>" 
+							          + "<td>" + com  + "</td>" 
+							          + "<td>" + pri  + "</td>" 
+							          + "<td>" + year  + "</td>" 
+							          + "</tr>";
+								
+				}
+				strHtml +="</table>"
+			}
+			$("#result").append(strHtml);
+		}
+		
+		function reset() {
+			window.location.reload();
+		}
+		
+	</script>
+</head>
+<body>
+	<button type="button" onclick="makeList(1)">노래 목록</button>
+	<button type="button" onclick="makeList(2)">노래 정보 목록</button>
+	<button type="reset" onclick="reset()">초기화</button>
+	<hr>
+		<div id="result">
+	 	<table>
+	 		<tr>
+	 			<th>번호</th>
+	 			<th>제목</th>
+	 		</tr>
+	 		<tr>
+	 			<td colspan="2">조회 버튼을 클릭 하세요.</td>
+	 		</tr>
+	 	</table>
+	</div>
+</body>
+</html>

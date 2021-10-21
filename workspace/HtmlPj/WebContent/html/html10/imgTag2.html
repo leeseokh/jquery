@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function addImageAll() {
+			
+		var arrList = document.getElementsByClassName("box")[0].getElementByTagName("li");
+		
+		for(var i=0; i < arrList.length; i++){
+			var item =arrList[i]; // <li>
+			console.log(arrList[i].title); //check.png
+			
+			item.childNodes[0].data // <li> => 텍스트 노드
+			
+			var objImg = document.createElement("img");
+			objImg.alt ="~";
+			objImg.src ="image/" + item.title";
+			objImg.height ="30";
+			
+			item.appendChild(objImg);
+		}
+	}
+		
+		
+		
+	</script>
+</head>
+<body>
+	<div style="border: 1px solid;" id="target" onclick="addImageAll()"></div>
+	<br>
+
+	<ul>
+		<li title ="sea.jfif">컴퓨터1</li>
+		<li title ="coffee.jfif">식품2</li>
+		<li title ="sea.jfif">호랑이</li>
+		<li title ="spongebob.jpg">cloud03</li>
+		<li title ="sea.jfif">coffee1</li>
+	</ul>	
+	
+</body>
+</html>

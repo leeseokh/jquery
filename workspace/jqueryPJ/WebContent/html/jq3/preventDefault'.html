@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>객체의 preventDefault 메소드</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("a[href*='www.naver.com']").click(function(e) {
+				alert(1);
+				
+				//기본동작 막기
+				e.preventDefault(); // a태그의 링크 동작 막기
+			});
+			$("a[href*='www.daum.net']").click(function() {
+				alert(2);
+			});
+		});
+	</script>
+</head>
+<body>
+	<h3>EVNET 객체의 preventDefault 메소드</h3>
+	<p>EVNET 객체의 preventDefault 메소드</p>
+	<hr>
+	<a href="http://www.naver.com" target="_blank">네이버로 이동</a><br>
+	<a href="http://www.daum.net" target="_blank">다음로 이동</a>
+</body>
+</html>

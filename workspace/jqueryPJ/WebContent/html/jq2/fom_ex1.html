@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#tig{
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// input 요소(form 선택자)
+			$(":input").css("border", "1px solid lime")
+			.css("background-color", "pink");
+			
+			//button 요소와 button 타입의 input
+			$(":button").css("background-color", "lightblue");
+			
+			//button 타입의 input
+			$("input[type='button']").css("background-color", "black")
+			.css("color", "white");
+			
+			//submit 타입(form 선택자)
+			$(":submit").css("background-color", "green");
+			
+			//submit 타입(form 선택자)
+			$(":reset").css("background-color", "yellow");
+			
+			$(":text, password").css("border", "1px solid blue");
+			$(":file, image").css("border", "1px solid red");
+			
+			
+		});
+	</script>
+</head>
+<body>
+	<form>
+		Text: <input type="text"><br>
+		Password: <input type="password"><br>
+		Radio: <input type="radio" id="rdA" name="rd">A
+		<input type="radio" id="rdB" name="rd">B<br>
+		Checkbox: <input type="checkbox" id=ChA name="ch">1
+		<input type="checkbox" id=ChA name="ch">2<br>
+		Textarea:<br>
+		<textarea rows="10" cols="20"></textarea><br>
+		
+		Image: <input type="image" id="tig" src="image/tiger.jpg"><br>
+		File: <input type="file" id="attachFile" name="attachFile"><br>
+		버튼<button type="button">버튼</button>
+		<button type="submit">submit</button>
+		<button type="reset">reset</button><br>
+		인풋버튼<input type="button" value="버튼">
+		<input type="submit">
+		<input type="reset">
+		
+	</form>
+</body>
+</html>

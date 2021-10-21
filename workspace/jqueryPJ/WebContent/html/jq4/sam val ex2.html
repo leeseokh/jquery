@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#btnAttr").click(function() {
+			var msg = "선택의  checked는 " + $("#tmp").attr("checked")
+					 +"\n성별의 checked는" + $("[name=gender]:checked").attr("checked")
+					 +"\n성별의 val는" + $("[name=gender]:checked").val()
+					 +"\n리스트의 selected는" + $("#number").attr("selected")
+					 +"\n리스트의 val는" + $("#number").attr("selected")
+					 +"\n리스트의 readonly는" + $("#input1").attr("readonly")
+					 +"\n실행버튼의 disabled는" + $("#btnSubmit").attr("disabled")
+			alert(msg);
+			});
+
+			$("#btnProp").click(function() {
+			var msg = "선택의  checked는 " + $("#tmp").prop("checked")
+					 +"\n성별의 checked는" + $("[name=gender]: checked").prop("checked")
+					 +"\n리스트의 val는" + $("#number").prop("selected")
+					 +"\n리스트의 readonly는" + $("#input1").prop("readonly")
+					 +"\n실행버튼의 disabled는" + $("#btnSubmit").prop("disabled")
+			alert(msg);
+			});
+			
+			$("input[type=text]").click(function() {
+				alert(0);
+			});
+		
+			
+		$("#allcheck").click(function() {
+				if($(this).prop("checked")){
+					$("input[id*=check]").prop("checked",true);
+				}else{
+					$("input[id*=check]").prop("checked",false);					
+				}
+			});
+		
+		
+		
+		$("#ck > :checkbox").click(function() {
+			if($("input[type=checkbox]").not(":checked")){
+				$("#allcheck").prop("checked",false);
+			}
+
+			var len = $("input[id*='check']").length;
+
+			var count = 0;
+			for(var i=0; i<len; i++){
+				if($("#check"+i).prop("checked")){
+					count++;
+				}
+			}
+
+			if(count == len-1){
+				$("#allcheck").prop("checked",true);
+			}
+		});	
+		});
+	</script>
+</head>
+<body>
+	<form>
+		체크박스 : <input type="checkbox" id="tmp"><label for="tmp">선택</label>
+		<br><br>
+		라디오 : <input type="radio" name="gender" id="genderM"><label for="genderM">남자</label>
+			   <input type="radio" name="gender" id="genderF" checked="checked"><label for="genderM">여자</label><br><br>
+		리스트 박스 : <select id="number">
+					<option value="001" selected="selected">하나</option>
+					<option value="002">둘</option>
+					<option value="003">셋</option>
+				 </select>
+		<br><br>
+		(readonly) : <input type="text" readonly="readonly" id="input1"><br><br>
+		(disalbed) : <button type="button" disabled="disabled" id="btnSubmit">실행</button>
+				 	 <button type="button" id="btnAttr">attr확인</button>
+					 <button type="button" id="btnProp">prop확인</button>
+		<hr>
+		<br><br><br>
+		체크박스(전체 선택/해제): <br><br>
+		<div id=ck>
+		<input type="checkbox" id="allcheck">전체선택
+		<input type="checkbox" id="check1"><label for="check1">1</label>
+		<input type="checkbox" id="check2"><label for="check2">2</label>
+		<input type="checkbox" id="check3"><label for="check3">3</label>
+		<input type="checkbox" id="check4"><label for="check4">4</label>
+		<input type="checkbox" id="check5"><label for="check5">5</label>
+		</div>
+	</form>
+</body>
+</html>

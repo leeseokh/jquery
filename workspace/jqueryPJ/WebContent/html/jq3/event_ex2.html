@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			$("button").mousedown (function(e) {
+				var clickButton = "type: " + e.type + "\ntarget: " + e.target + "\npageX :"  + e.pageX 
+				+ "\npageY :" + e.pageY + "\nscreenX: " + e.screenX + "\nscreenY: "+e.screenY + "\nbutton: " + e.button;
+				
+				alert(clickButton); 
+			});
+			$("div").mousedown (function(e) {
+				var clickDiv = "type: " + e.type + "\ntarget: " + e.target + "\npageX :"  + e.pageX 
+				+ "\npageY :" + e.pageY + "\nscreenX: " + e.screenX + "\nscreenY: "+e.screenY + "\nbutton: " + e.button;
+				
+				alert(clickDiv); 
+			});
+			$("#log").mousemove(function(e) {
+				var clickLog = "pageX: " + e.pageX + "pageY: " + e.pageY + "screenX: " + e.screenX + "screenY: " + e.screenY ;  
+		
+				$("#log").text(clickLog);
+			});
+		
+			});
+
+
+					
+	</script>
+</head>
+<body>
+	<div style="width:300px; height: 300px; background-color: yellow;"></div>
+	<br>
+	<button type="button">버튼</button>
+	<div id="log" style= "height: 50px; background-color:aqua;"></div>
+</body>
+</html>

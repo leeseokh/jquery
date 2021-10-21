@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function makeList(flag){
+			$.ajax({
+				url: "../jq9_data/cd_catalog.xml"
+// 				,type: ""
+// 				,data: ""
+				,dataType: "xml"
+				,success : function(data){
+					if(flag == 1) { // 노래제목 목록 
+						makeTitleTable(data);
+					}else{ // 노래정보 목록
+						makeTable(data);
+					}
+				}
+				,error : function(xhr){
+					console.log(xhr);
+				}
+			});
+			
+		}
+		
+		function makeTable(data){
+			alert(2);
+		}
+		function makeTitleTable(data){
+			alert(1);
+// 			var strHtml = ""
+// 						+ " <table>          "
+// 					 	+ "	<tr>             "
+// 					 	+ "		<th>번호</th>  "
+// 					 	+ "		<th>제목</th>  "
+// 					 	+ "	</tr>            ";
+	 		
+// 			for(){
+				
+// 				strHtml + "<tr>           "
+// 				 		+ "	<td>1</td>    "
+// 				 		+ "	<td>좋은날</td>  "
+// 				 		+ "</tr>          ";
+// 			}
+			
+// 			strHtml += "</table>";
+			
+// 			$("#result").html(strHtml);
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<button type="button" onclick="makeList(1)">노래 목록</button>
+	<button type="button" onclick="makeList()">노래 정보 목록</button>
+	<hr>
+	<div id="result">
+	 	<table border="1" style="width: 100%;">
+	 		<tr>
+	 			<th>번호</th>
+	 			<th>제목</th>
+	 		</tr>
+	 		<tr>
+	 			<td colspan="2">조회 버튼을 클릭 하세요.</td>
+	 		</tr>
+	 	</table>
+	</div>
+</body>
+</html>

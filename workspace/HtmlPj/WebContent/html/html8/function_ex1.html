@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		
+		//무명함수 호출	
+		(function showMsg(year){
+			alert("hi~" + year);
+		})(2021);
+		
+		//일반함수 정의
+		function showMsg(year, month){
+			alert("hi~" + year);
+		}
+		// showMsg(2021);  <<= 함수 호출
+		function calculate() {
+			
+			var ele = document.getElementById("input1")
+			var val1 = ele.value;
+			
+			var val2 = document.getElementById("input2").value;
+			var sum = Number(val1) + Number(val2);
+			
+			document.getElementById("result").value = sum;
+			
+			document.getElementById("spInput1").innerHTML = val1;
+			document.getElementById("spInput2").innerHTML = val2;
+			document.getElementById("spResult").innerHTML = val1 + val2;
+			
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="showMsg(2021)">클릭하세요</button>
+	<button type="button" onclick="showMsg('홍길동')">클릭하세요</button>
+	
+	<hr>
+	<h1>덧셈 계산기</h1>
+	첫번째 정수: <input type="text" id="input1"><br>
+	두번째 정수: <input type="text" id="input2"><br>
+	<br>
+	결과 : <input type="text" id="result"><br>
+	<button type="button" onclick="calculate();">계산</button>
+	<br>
+	<p>첫번째 값 : <span id="spInput1"></span></p>
+	<p>두번째 값 : <span id="spInput2"></span></p>
+	<p>결과 : <span id="spResult"></span></p>
+</body>
+</html>

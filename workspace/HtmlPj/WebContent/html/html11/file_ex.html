@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FILE 요소 사용하기</title>
+	<style type="text/css">
+		div{
+			background-color: gray;
+		}
+		button {
+			background-color: blue;
+			color: white;
+			border-radius: 10px;
+		}
+		img {
+			width: 50%;
+			height: 50%;
+		}
+		body{
+			width: 50%
+		}
+	</style>
+	<script type="text/javascript">
+	
+	var img = document.createElement("img")
+
+		function readFile( ) {
+
+			var fileList = document.getElementById("attachFile").files; 
+			
+			if(fileList.length == 0 || fileList.length == null){
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			var file = fileList[0];
+			var reader = new FileReader();
+			
+			if(file == img){
+			reader.readAsText(file);		
+			}else{
+			reader.readAsDataURL(file);					
+			}
+		
+			reader.onload = function (){
+				document.getElementById("result1").value = reader.result;
+			};
+		}
+		
+			var obj = document.getElementById("attachFile"); //<input type="file">
+			var fileList = obj.files; // file list //[]
+			
+			if(fileList.length == 0 || fileList.length == null){
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			
+			var file = fileList[0]; // File
+			console.log(file);
+			
+			var str = "변경일시: " + file.lastModifiedDate
+			+ "\n파일명 :" +file.name
+			+ "\n파일크기 : " + file.size
+			+ "\n파일유형 : " + file.type;
+			
+			document.getElementById("result").value = str;
+
+	</script>
+</head>
+<body>
+	<div>
+		<input type="file" id="attachFile" name="attachFile">
+		<button type="button" onclick="readFile()">읽기</button>
+	</div>
+	<br>
+	<div>
+		<h1>결과 출력 (FileReader 객체)</h1>
+		<p>이미지 파일인 경우에는DataURL형식으로 아닌경우 Text형식으로</p>
+		<br>
+		<br>
+		<textarea rows="10" cols="50" id="result"></textarea>
+	</div>
+	<br>
+	<div>
+		<h1>파일정보(File 객체)</h1>
+		<p>이미지 파일을 읽은 경우에 이미지가 표시된다. 다른 파일을 읽었을 경우 이미지가 표시되지 않는다.</p>
+		<img id="resultImg">
+		<br>
+		<textarea rows="10" cols="50" id="result2"></textarea>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

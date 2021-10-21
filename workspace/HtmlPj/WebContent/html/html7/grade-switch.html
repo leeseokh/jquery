@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var grade = prompt("점수를 입력하세요.");
+		
+		var temp = parseInt(grade/10);
+		var result = "";
+		
+		if (grade >100 || grade < 0){
+		 document.write("잘못 입력하셨습니다. 0에서 100 사이의 숫자를 입력해주세요");
+		}else{	  
+		}
+		
+		  switch (temp) {
+		case 10:	  
+		case 9:
+			result= "A";
+			break;
+		case 8:
+			result= "B";
+			break;
+		case 7:
+			result= "C";
+			break;
+		case 6:
+			result= "D";	
+			break;
+		default:
+			result= "F";
+		}
+		  document.write("입력 점수는 " + grade + " 학점은 " + result);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

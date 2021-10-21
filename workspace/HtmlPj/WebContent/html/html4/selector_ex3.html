@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css"> 
+		#test1 ~ p {
+			background-color: aqua;
+		}
+		#test1 + h1 {
+			background-color: green;
+		}
+		
+		/* 가상클래스  */
+		a:link{				
+			color: yellow;	
+		}
+		a:visited{
+			color: green;
+		}
+		a:hover {
+			color: red;
+		}
+		a:active{		
+			color: aqua;
+		}
+		#tmp2 p {
+			color: red;
+		}
+		#tmp2 p:first-child /*첫번째만 가져오는것.  */ {
+			background-color: gray;		
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1 id="test1">예시3</h1>
+		<p>하느님이 보우하사</p>
+		<h1>예시4</h1>
+		<p>우리나라 만세</p>
+		<h1>예시5</h1>
+		<p>만세만세 만만세</p>
+		<p>가나다라마바사</p>
+		<div>
+			<p>가나다라마바사</p>
+			<p>가나다라마바사</p>
+		</div>
+		<p>가나다라마바사</p>
+	</div>
+	
+	<!--의사 클래스  -->
+	<div id="tmp2">
+		<a href="">링크1</a>
+		<a href="http://google.com">링크2</a>
+		<a href="http://w3c.com">링크3</a>
+		<a href="http://daum.net">링크4</a>
+		
+		<p>aaaaaaa</p>
+		<p>aaaaaaa</p>
+		<p>aaaaaaa</p>
+		<p>aaaaaaa</p>
+		<p>aaaaaaa</p>
+		<p>aaaaaaa</p>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+
+		
+</body>
+</html>

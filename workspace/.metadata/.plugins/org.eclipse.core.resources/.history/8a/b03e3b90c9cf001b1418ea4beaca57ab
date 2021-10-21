@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#td1, #td2 {
+			text-align:right;
+
+		}
+		table{
+			width:200px;
+			height:100px;
+			margin:auto;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<form action="id_do" method="post">
+		<table border="1">
+			<tbody>
+				<tr>
+					<td id="td1">
+						이름: <input type="text" name="mem_name" required="required" placeholder="이름">
+					</td>
+				</tr>
+				<tr>
+					<td id="td2">
+						전화번호: <input type="text" name="mem_tel" required="required" placeholder="전화번호">
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+            <tr>
+               <td align="center" colspan="2">
+                  <input type="submit" value="찾기">
+               </td>
+            </tr>
+         </tfoot>
+		</table>
+	
+	</form>
+</body>
+</html>

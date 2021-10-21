@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <style type="text/css">
+   
+      #header{
+         width: 98%;
+         height: 150px;
+         background-color: yellow;
+         border-radius: 30px;
+         padding: 10px;
+         margin: 10px;
+         line-height: 50px;
+      }
+      #nav{
+         width: calc(30% - 30px);
+         height: 400px;
+         background-color: pink;
+         float: left;
+         border-radius: 30px;
+         padding: 10px;  
+      }
+      #content{
+         width:calc(70% - 30px);
+         height: 400px;
+         background-color: #5eeded;
+         border-radius: 30px;
+         padding: 10px;
+         margin: 10px;
+         float: left;  
+         overflow: hidden;  
+      }
+      #content p, h3{ 
+      	margin-left: 20px;
+      	margin-bottom:30px;   	
+      }
+      #footer{
+         width: 98%;
+         height: 75px;
+         background-color: violet;
+         border-radius: 30px;
+         padding: 10px;
+         margin: 10px;
+         clear: both;
+         line-height: 70px;
+      }
+      #header, #footer {
+         text-align: center;
+      }
+      li a:link{
+         color:yellow;
+      }
+      li a:visited{
+         color: white;
+      }
+      li a{
+         text-decoration: none;
+      }
+      img{
+         position: relative; left:150px; 
+      }
+      .sp{
+         position:relative; 
+         left:160px; 
+         bottom:10px;
+      }
+     #sec1{
+        width: 90%;
+        height: 170px;
+        background-color: #17cfcf;
+        border-radius: 30px;
+        border: dotted;
+        border-color: #0d7373;
+        margin: 10px;
+        overflow: hidden;
+     }
+     #sec2{
+        width: 90%;
+        height: 150px;
+        background-color: #17cfcf;
+        border-radius: 30px;
+        border: dotted;
+        border-color: #0d7373;
+        margin: 10px; 
+        overflow: hidden;
+     }
+   </style>
+   
+</head>
+<body>
+   <div id="header">
+         <h1>My Blog Page</h1>
+         <p>시멘틱 태그로 만들어진  페이지 입니다.</p>
+   </div>
+   <div id="nav">
+      <h2>Links</h2>
+      <ul>
+         <li><a href=https://www.w3schools.com/>w3schools</a></li>
+         <li><a href=https://www.naver.com/>Naver</a></li>
+         <li><a href=https://www.daum.net/>Daum</a></li>
+      </ul>   
+      <img class="spongebob" alt="스펀지" src="../../images/sponge.png" width="100px" height="100px">
+      <p class="sp">스폰지밥</p>
+   </div>
+   <div id="content">
+         <div id="sec1">
+            <h3>Semantic Tags</h3>   
+            <p>시멘틱요소(Sementic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는
+            요소이다. 레이아웃을 만들때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.
+         </div>
+         <div id="sec2">
+            <h3>div와 span</h3>
+            <p>div은 divide의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다.
+            span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.</p>
+         </div>
+   </div>   
+   <div id="footer">Copyright (c)2019 Hong</div>
+</body>
+</html>

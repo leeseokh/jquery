@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//new Date() : 현재 시간과 날짜
+		//var d1 = new Date(2013,7 ,21,0,0,0); //설정도 가능.
+		// get time : 경과 시간	
+		
+		//현재시간 구하기
+		function proc(){
+			var currTime = new Date();	//Date 객체
+			
+			console.log(currTime.getTime()); // currTime을 millisec으로 리턴 해주는 것.
+			
+			//7일 뒤 날짜 계산
+			var afterTime = currTime.getTime() + (7 * 24 * 60 * 60 * 1000); //7일에 대한 milisec	
+			
+			var afterDate = new Date(afterTime);
+			
+			//현재시간 화면에 표시
+			document.getElementById("spCurrTime").innerHTML = currTime;
+			
+			//7일 후의 날짜 화면에 표시
+			document.getElementById("spAfter").innerHTML = afterDate;
+		}
+		
+		function checkDate(){
+			var buyDate = document.getElementById("buyDate").value;
+			console.log(buyDate);
+			console.log("구입일자 date: " + new Date(buyDate));
+			
+			var buyTime = (new Date(buyDate)).getTime(); // => new Date("2021-05-12")
+			
+			var currDate = new Date();
+			console.log("현재일자 date : " + currDate);
+			var currTime = currDate.getTime();
+			
+			var result = (currTime - buyTime)/1000/60/60/24;   
+			//milisec           > sec > 분 > 시 > 일
+			console.log(result);
+				
+			if(result > 8){
+				alert("교환가능 기간은 7일 입니다.");
+			}else{
+				alert("교환 가능 기간 입니다.");
+			}
+		}
+			
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc()">수행</button>
+	<p>오늘 현재 시간은 ~입니다.<span id="spCurrTime"></span>입니다.</p>
+	<p>7일 후 시간은 ~입니다.<span id="spAfter"></span>입니다.</p>
+	
+	<br>
+		
+	구입날짜: <input type="date" id="buyDate">
+	<button onclick="checkDate()">검사</button>
+</body>
+</html>

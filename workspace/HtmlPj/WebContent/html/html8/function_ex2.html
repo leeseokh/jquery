@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function calculate(a, b){
+			return a + b;
+		}
+		
+		//화면이 로딩 되면서 calculate를 호출
+		window.onload = function(){
+//			alert(result);
+//			console.log(getElementById("tmp")).innerHTML);
+			document.getElementById("tmp").innerHTML = calculate(10,20);
+		}
+		
+		function makeRandom{
+			//숫자 5개 랜덤으로 생성해서 textarea에 넣어두기.
+			//Math.random(){} 사용하기
+			//Math.random( : 0~0.999999)
+			//Math.random*10( : 0~9.999999)
+			for(var i=0; i < 5; i++){
+			var val = parseInt(Math.random()*10)+1); //0~9
+			
+//			var temp = document.getElementById("result").innerHTML;
+//			document.getElementById("result").innerHTML = val;
+			
+			 if(i != 4){
+		            document.getElementById("result").innerHTML += val + ", ";
+		            }else{
+		               document.getElementById("result").innerHTML += val;
+		            }
+			}
+			document.getElementById("result").innerHTML += "\n"
+	      }
+		
+		function closeWindow(){
+			var result = confirm("현재 창을 닫으시겠습니까?");
+			console.log(result);
+			
+			if(result){
+				alert("창을 어찌 닫지?");
+			}
+			if(!confirm()"저장하겠어요?")){
+				return;
+			}
+			//~
+			alert("저장되었씁니다.");
+		}
+		
+	</script>        
+</head>
+<body>
+	<p id="tmp"></p>
+	<hr>
+	
+	<button type="button" onclick="makeRandom()">시작</button>
+	<hr color="blue">
+	<h1>출력 위치</h1>
+	<textarea id="result" rows="10" cols="" id="result"></textarea>
+	
+	<hr>
+	<button type="button" onclick="closeWindow();">창 닫기</button>	
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function proc(){
+//			document.getElementById("temp"); == > h1 id="temp" > 내이름은 홍길동
+			var ele = document.getElementById("temp");
+			ele.style.color = "red";	  //스타일
+			ele.innerHTML = "빨간색으로 변경"; //내용
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<h1 id="temp" style="color: blue;">내 이름은 홍길동</h1>
+	<button type="button" onclick="proc()">색 바꾸기</button>
+	
+</body>
+</html>

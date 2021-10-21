@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		for(var i=0; i < 10; i++){
+			document.write("카운터: " + i); //카운터:0
+			document.write("<br>");
+		}
+		for(var i=0; i<6; i++){
+			document.write("카운터: " + (i+3)); //카운터:0
+			document.write("<br>");
+			//document.write("카운터:" + i +"<br>");
+		}
+		document.write("<hr>");
+		//구구단표 만들기
+		document.write("<h1>구구단표</h1>");
+		document.write("<table>");
+		//2~9 까지 반복		
+		for(var i= 2; i < 10; i++){
+			document.write("<tr>")
+			document.write("<td>" + i + "단</td>")
+			
+			}
+		for(var j= 1; j < 10; j++ ){
+			document.write("<td>" + (i*j) + "</td>")	
+		}//반복 끝
+			document.write("</tr>");
+			}
+			//반복 끝
+			document.write("</table>");
+			
+			document.write("</hr>");
+			
+			var mayCar = {
+					make : "KIA"
+					,moder : "K8"
+					,year : 2021
+			};
+			
+	//		myCar.make ==> "KIA"
+	//		myCar["make"] ==> "KIA"
+			for(var x in myCar){
+				console.log(x);
+				document.write(myCar[x] + "<br>");
+			}
+			
+
+	
+
+	</script>
+</head>
+<body>
+	<!-- 구구단  -->
+	
+	<table>
+		<tr>
+			<td>2단</td>
+			<td>2</td>
+			<td>4</td>
+			<td>6</td>
+			<td>8</td>
+			<td>10</td>
+			<td>12</td>
+			<td>14</td>
+			<td>16</td>
+			<td>18</td>
+		</tr>
+		<tr>
+			<td>3단</td>
+			<td>3</td>
+			<td>6</td>
+			<td>9</td>
+			<td>12</td>
+			<td>15</td>
+			<td>18</td>
+			<td>21</td>
+			<td>24</td>
+			<td>27</td>
+		</tr>
+		<tr>
+			<td>4단</td>
+			<td>4</td>
+			<td>8</td>
+			<td>12</td>
+			<td>16</td>
+			<td>20</td>
+			<td>24</td>
+			<td>28</td>
+			<td>32</td>
+			<td>36</td>
+		</tr>
+		<tr>
+			<td>5단</td>
+			<td>5</td>
+			<td>10</td>
+			<td>15</td>
+			<td>20</td>
+			<td>25</td>
+			<td>30</td>
+			<td>35</td>
+			<td>40</td>
+			<td>45</td>
+		</tr>
+		<tr>
+			<td>6단</td>
+			<td>6</td>
+			<td>12</td>
+			<td>18</td>
+			<td>24</td>
+			<td>30</td>
+			<td>36</td>
+			<td>42</td>
+			<td>48</td>
+			<td>56</td>
+		</tr>
+		<tr>
+			<td>7단</td>
+			<td>7</td>
+			<td>14</td>
+			<td>21</td>
+			<td>28</td>
+			<td>35</td>
+			<td>42</td>
+			<td>49</td>
+			<td>56</td>
+			<td>63</td>
+		</tr>
+		<tr>
+			<td>8단</td>
+			<td>8</td>
+			<td>16</td>
+			<td>24</td>
+			<td>32</td>
+			<td>40</td>
+			<td>48</td>
+			<td>56</td>
+			<td>64</td>
+			<td>72</td>
+		</tr>	
+		<tr>
+			<td>9단</td>
+			<td>9</td>
+			<td>18</td>
+			<td>27</td>
+			<td>36</td>
+			<td>45</td>
+			<td>54</td>
+			<td>63</td>
+			<td>72</td>
+			<td>81</td>
+		</tr>	
+	</table>
+	
+</body>
+</html>

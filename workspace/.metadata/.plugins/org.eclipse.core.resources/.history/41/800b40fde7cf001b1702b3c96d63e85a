@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" action="startPage.jsp">
+		<table style= "width: 1000px; height: 450px; border: 1;">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+
+	</form>
+</body>
+</html>
+

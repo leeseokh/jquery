@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+        }
+    }).open();
+	</script>
+	<style type="text/css">
+  	.form-group{
+  		display: inline;
+  	}
+  	hr{
+  		border: solid 1px gray;
+  	}
+	button.btn{
+		background-color: black;
+		color: white;
+	}
+	button.btn-secondary{
+		background-color: silver;
+		color: black;
+		
+	}
+	h2{
+		text-align: center;
+	}
+  				
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2>회원가입</h2>
+		<br>
+		<form class="form-horizontal" action="/action_page.php">
+			<!--아이디  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userId">ID</label>
+				<div class="col-sm-5 form-inline">
+					<input type="text" class="form-control" id="userId" 
+					placeholder="Enter Id" name="userId">
+					<button type="button" class="btn" onclick="duplicateId()">중복 검사</button>
+				</div>
+			</div>
+			<hr>
+			<!--이름-->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userName">이름</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="userName" 
+					placeholder="Enter Name" name="userName">
+				</div>
+			</div>
+			<hr>
+			<!-- 생년월일 -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userBirth">생일:</label>
+				<div class="col-sm-8">
+					<input type="date" class="form-control" id="userBirth"
+						placeholder="1999.04.15" name="userBirth">
+				</div>
+			</div>
+			<hr>
+			<!--패스워드  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userPwd">비밀번호:</label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" id="userPwd" 
+					placeholder="Enter Password" name="userPwd">
+				</div>
+			</div>
+			<hr>
+			<!--휴대폰번호  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userHp">휴대폰 번호:</label>
+				<div class="col-sm-10">
+					<input type="tel" class="form-control" id="userHp" 
+					placeholder="Enter PhoneNumber" name="userHp">
+				</div>
+			</div>
+			<hr>
+			<!-- 이메일 -->			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userEmail">이메일:</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="userEmail"
+						placeholder="abcd123@email.com" name="userEmail">
+				</div>
+			</div>
+			<hr>
+			<!--우편번호  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="zipCode">우편번호:</label>
+				<div class="col-sm-8 form-inline">
+					<input type="text" class="form-control" id="zipCode" 
+					placeholder="Enter zipCode" name="zipCode" readonly="readonly"> 
+					<button type="button" class="btn" onclick="openZipSearch()">번호검색</button>
+				</div>
+			</div>
+			<!--주소  -->
+		 	<div class="form-group">
+				<label class="control-label col-sm-2" for="userAddress">주소:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="userAddress" 
+					placeholder="Enter Address" name="userAddress" readonly="readonly">
+				</div>
+			</div>
+			<!--상세주소  -->
+		 	<div class="form-group">
+				<label class="control-label col-sm-2" for="detailAddress">상세주소:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="detailAddress" 
+					placeholder="Enter AddressDetail" name="detailAddress">
+				</div>
+			</div>
+			<!--저장, 취소  -->
+			<div class="form-group lastRow">
+					<div class="col-sm-offset-0 col-sm-10">
+						<button type="button" class="btn btn-primary" onclick="save()">저장</button>
+						<button type="button" class="btn btn-secondary">취소</button>
+					</div>
+				</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+	function duplicateCheck() {
+//		if($("userId") != null){
+			alert("사용가능한 ID입니다.");
+//		}else{
+//			alert("중복된 ID입니다.");
+//		}
+	}
+	
+	function openZipSearch() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				$('[name=zipCode]').val(data.zonecode); // 우편번호 (5자리)
+				$('[name=userAddress]').val(data.address);
+				$('[name=detailAddress]').val(data.buildingName);
+			}
+		}).open();
+	}
+	</script>
+</body>
+</html>

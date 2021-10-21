@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table, td, th {
+			border-collapse: collapse;
+			border: 2px solid white;
+			background-color: black;
+			color: white;
+		}
+		table {
+			width: 100%;
+			/* text-align: center; */
+		}
+	</style>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script src="myUtil.js"></script>
+	<script type="text/javascript">
+		function proc(flag) {
+			var strUrl="";			
+			if(flag ==1){
+				strUrl = "data_json.jsp";
+			}
+			else if(flag == 0){
+				strUrl="data_json2Empty.jsp";
+			}
+			
+			$.ajax({
+				url: "data_json.jsp"
+//				,type:""
+//				,data:""
+				,dataType:"json"
+				,success: function(data) {
+					console.log(data);
+					selectTable(data);	
+				}
+				,error: function(xhr) {
+					
+					alert("실패");
+				}
+			});
+		}
+		function selectTable(data) {
+			//기존 데이터 지우기
+			$("#tb tbody").empty();
+			
+			var strHtml=""
+			
+			for(var i =0; i <data.length; i++){
+				var no = data[i].no;
+				var id = data[i].id;
+				var name = data[i].name;
+				var hp = data[i].hp;
+				var birth = data[i].birth;
+				
+				strHtml +=""
+				
+				+"<tr>"
+	 			+"	<td>" + no + "</td>"
+		 		+"	<td>" + id + "</td>"
+		 		+"	<td>" + name + "</td> "
+		 		+"	<td>" + hp + "</td>"
+		 		+"	<td>" + format("DATA",birth) + "</td>"
+	 			+"</tr>";
+			}  
+			if(data.length == 0){
+		
+			strHtml= "<tr>"
+ 					+'<td colspan="5">검색결과가 없습니다..</td>'
+ 					+"</tr>"
+			}			
+			$("#tb tbody").html(strHtml);
+		}
+	</script>
+</head>
+<body>
+	<h3>예) 회원목록</h3>
+	<button type="button" onclick="proc(1)">JSON LIST</button>
+	<button type="button" onclick="proc(0)">빈 데이터</button>
+	<hr>
+		<div id="result">
+	 	<table id="tb">
+	 		<colgroup>
+	 			<col style="width: 70px;">
+	 			<col style="width: 100px;">
+	 			<col style="width: auto;">
+	 			<col style="width: 130px;">
+	 			<col style="width: 120px;">
+
+	 		</colgroup> 		
+	 		
+	 		<thead>
+	 			<tr>
+	 				<th>번호</th>
+		 			<th>ID</th>
+		 			<th>이름</th>
+		 			<th>연락처</th>
+		 			<th>생년월일</th>
+	 			</tr>
+	 		</thead>
+			<tbody>
+
+	 			<tr>
+	 				<td colspan="5">조회 버튼을 클릭 하세요.</td>
+	 			</tr>
+	 		</tbody>
+	 	</table>
+	</div>
+</body>
+</html>

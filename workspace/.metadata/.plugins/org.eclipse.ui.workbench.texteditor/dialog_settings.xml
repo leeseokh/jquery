@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.wst.html.ui.internal.preferences.ui.HTMLTemplatePreferencePage$HTMLEditTemplateDialog_dialogBounds">
+		<item value="612" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="627" key="DIALOG_HEIGHT"/>
+		<item value="38" key="DIALOG_X_ORIGIN"/>
+		<item value="118" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="729" key="DIALOG_X_ORIGIN"/>
+		<item value="403" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="" key="selection"/>
+		<item value="true" key="casesensitive"/>
+		<item value="true" key="incremental"/>
+		<item value="false" key="wrap"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="var userbirth = $(&quot;#birth&quot;).val();// 생년월일체크"/>
+			<item value="fm"/>
+			<item value="u"/>
+			<item value="ㅈ"/>
+			<item value="userId"/>
+			<item value="userIdSpan"/>
+			<item value="ADS"/>
+			<item value="ADs"/>
+			<item value="AD"/>
+			<item value="Ad"/>
+			<item value="ad"/>
+			<item value="men"/>
+			<item value="ㅡㄷ"/>
+			<item value="th"/>
+			<item value="navbar"/>
+		</list>
+		<list key="replacehistory">
+			<item value="td"/>
+			<item value="setDeleteYn"/>
+			<item value="DeleteYn"/>
+			<item value="deleteYn"/>
+			<item value=""/>
+			<item value="userName"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="288" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="824" key="DIALOG_X_ORIGIN"/>
+		<item value="268" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

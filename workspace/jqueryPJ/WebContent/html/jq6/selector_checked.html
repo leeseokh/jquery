@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		var hobby = "";
+		$(document).ready(function(){
+			$("button").click(function(e){
+
+					$(":input:checked").each(function(idx,item) {
+					if(idx != 0){
+						hobby +=",";
+					}
+						hobby += $(this).val();
+					});
+			alert(hobby);
+					$("#result").text(hobby);
+			});
+		});
+	</script>
+</head>
+<body>
+	<form>
+		취미 :
+		<input type="checkbox" id="trip" name="checking" value="여행"><label for="trip">여행</label>&nbsp;&nbsp;
+		<input type="checkbox" id="chess" name="checking" value="장기"><label for="chess">장기</label>&nbsp;&nbsp;
+		<input type="checkbox" id="baduk" name="checking" value="바둑"><label for="baduk">바둑</label>&nbsp;&nbsp;
+		<input type="checkbox" id="reading" name="checking" value="독서"><label for="reading">독서</label>&nbsp;&nbsp;
+		<input type="checkbox" id="fishing" name="checking" value="낚시"><label for="fishing">낚시</label>&nbsp;&nbsp;
+	</form>	
+	<button type="button">전송</button>
+	<br>
+	<p>선택 결과 : <span id="result"></span></p>
+</body>
+</html>

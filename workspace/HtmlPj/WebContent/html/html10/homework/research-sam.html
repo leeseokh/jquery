@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function print(){
+			var strResult = "";
+			// ~씨. 당신은 남자이고, 취미는 ~이군요.!
+			
+			var userName = document.getElementById("userName").value;
+			
+			var userGender = "";
+			var arrGender = document.getElementsByName("gender");
+			for(var i=0 ; i<arrGender.length ; i++){
+				if(arrGender[i].checked){
+					userGender = arrGender[i].value;
+				}
+			}
+			
+			strResult += userName + "씨!\n당신은 " + userGender + "이고요, ";
+			
+			
+			document.getElementById("taResult").value = strResult;
+		}
+	</script>
+</head>
+<body>
+	이름 : <input type="text" id="userName">
+	<br>
+	성별 : <input type="radio" name="gender" id="genderMale" value="남자"><label for="genderMale">남</label>
+	<input type="radio" name="gender" id="genderFemale" value="여자"><label for="genderFemale">여</label>
+	<br>
+	취미 : <input type="checkbox" name="hobby" id="hobby1"><label for="hobby1">여행</label>
+	<input type="checkbox" name="hobby" id="hobby2"><label for="hobby2">독서</label>
+	<input type="checkbox" name="hobby" id="hobby3"><label for="hobby3">영화감상</label>
+	<input type="checkbox" name="hobby" id="hobby4"><label for="hobby4">바둑</label>
+	<input type="checkbox" name="hobby" id="hobby5"><label for="hobby5">낚시</label>
+	<br>
+	<button type="button" onclick="print()">결과출력</button>
+	<br><br>
+	<textarea rows="8" cols="50" id="taResult"></textarea>
+	
+</body>
+</html>

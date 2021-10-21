@@ -1,0 +1,72 @@
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Id {
+	// 9. 아이디 찾기
+	public String findId(String name, String email) {
+		String id = null;
+		try {
+			String sql = "select member_id" + " from member_info" + " where name = ? and" + " email = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+
+			String sql2 = "select company_id" + " from company_info" + " where name = ? and" + " email = ?";
+			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+
+			pstmt2.setString(1, name);
+			pstmt2.setString(2, email);
+
+			ResultSet rs2 = pstmt2.executeQuery();
+
+			if (rs.next())
+				id = rs.getString("member_info.member_id");
+			if (rs2.next())
+				id = rs2.getString("company_info.company_id");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+
+	// 10. 비밀번호 찾기
+	public String findPw(String memberId, String email, String name) {
+		
+		String pw = null;
+
+		try {
+			String sql = "select passwd" + " from member_info" + " where member_id = ? and" + " email = ? and"
+					+ " name = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, email);
+			pstmt.setString(3, name);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			String sql2 = "select passwd" + " from company_info" + " where company_id = ? and" + " email = ? and"
+					+ " name = ?";
+
+			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+			
+			pstmt2.setString(1, memberId);
+			pstmt2.setString(2, email);
+			pstmt2.setString(3, name);
+
+			ResultSet rs2 = pstmt2.executeQuery();
+
+			if (rs.next())
+				pw = rs.getString("member_info.passwd");
+			if (rs2.next())
+				pw = rs2.getString("company_info.passwd");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pw;
+	}
+
+}

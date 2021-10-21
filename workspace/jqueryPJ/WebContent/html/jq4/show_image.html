@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#img1").click(function(e) {
+				e.preventDefault();
+			$("#xImg").slideUp(function() {
+				$("#xImg").attr("src", $("#img1").attr("href"));
+				$("#xImg").slideDown();
+			});
+			});
+			
+			$("#img2").click(function(e) {
+				e.preventDefault();
+			$("#xImg").fadeOut(function() {
+				$("#xImg").attr("src", $("#img2").attr("href"));
+				$("#xImg").fadeIn();
+			
+			});
+			});
+			$("#img3").click(function(e) {
+				e.preventDefault();
+			$("#xImg").hide(function() {
+				$("#xImg").attr("src", $("#img3").attr("href"));
+				$("#xImg").show();	
+			});
+			});
+		});
+				
+
+	</script>
+</head>
+<body>
+	<h1>자연</h1>
+	<ul>
+		<li><a href="image/sea.jfif" id="img1">바다</a></li>
+		<li><a href="image/tiger.jpg" id="img2">호랑이</a></li>
+		<li><a href="image/lion.jpg" id="img3">사자</a></li>
+	</ul>
+	<hr color="red">
+	<div>
+		<img id="xImg" alt="x" src="image/X.jpg">
+	</div>
+	
+</body>
+</html>

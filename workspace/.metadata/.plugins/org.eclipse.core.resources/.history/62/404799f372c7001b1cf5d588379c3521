@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.form-group{
+  		display: inline;
+  	}
+  	hr{
+  		border: solid 1px gray;
+  	}
+	button.btn{
+		background-color: black;
+		color: white;
+	}
+	button.btn-secondary{
+		background-color: silver;
+		color: black;
+	}
+	h2{
+		text-align: center;
+	}
+  				
+  </style>
+</head>
+	<script type="text/javascript">
+		function save() {
+			
+	         var id = $('userId').value;
+	         var name = $('userName').value;
+	         var birth = $('userBirth').value;
+	         var pwd = $('userPwd').value;
+	         var hp = $('userHp').value;
+	         var email = $('userEmail').value;
+			
+		}
+	</script>
+<body>
+
+	<div class="container">
+		<h2>회원가입</h2>
+		<br>
+		<form class="form-horizontal" action="/action_page.php">
+			<!--아이디  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userId">ID</label>
+				<div class="col-sm-5 form-inline">
+					<input type="text" class="form-control" id="userId" 
+					placeholder="Enter Id" name="userId">
+					<button type="button" class="btn">중복 검사</button>
+				</div>
+			</div>
+			<hr>
+			<!--이름-->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userName">이름</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="userName" 
+					placeholder="Enter Name" name="userName">
+				</div>
+			</div>
+			<hr>
+			<!-- 생년월일 -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userBirth">생일:</label>
+				<div class="col-sm-8">
+					<input type="date" class="form-control" id="userBirth"
+						placeholder="1999.04.15" name="userBirth">
+				</div>
+			</div>
+			<hr>
+			<!--패스워드  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">비밀번호:</label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" id="pwd" 
+					placeholder="Enter Password" name="pwd">
+				</div>
+			</div>
+			<hr>
+			<!--휴대폰번호  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="hp">휴대폰 번호:</label>
+				<div class="col-sm-10">
+					<input type="tel" class="form-control" id="hp" 
+					placeholder="Enter PhoneNumber" name="hp">
+				</div>
+			</div>
+			<hr>
+			<!-- 이메일 -->			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">이메일:</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="email"
+						placeholder="abcd123@email.com" name="email">
+				</div>
+			</div>
+			<hr>
+			<!--우편번호  -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="zipCode">우편번호:</label>
+				<div class="col-sm-8 form-inline">
+					<input type="text" class="form-control" id="zipCode" 
+					placeholder="Enter zipCode" name="zipCode"> 
+					<button type="button" class="btn">번호검색</button>
+				</div>
+			</div>
+			<hr>
+			<!--주소  -->
+		 	<div class="form-group">
+				<label class="control-label col-sm-2" for="address">주소:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="address" 
+					placeholder="Enter Address" name="address">
+				</div>
+			</div>
+			<hr>
+			<!--상세주소  -->
+		 	<div class="form-group">
+				<label class="control-label col-sm-2" for="detailAddress">상세주소:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="detailAddress" 
+					placeholder="Enter AddressDetail" name="detailAddress">
+				</div>
+			</div>
+			<hr>
+			<!--저장, 취소  -->
+			<div class="form-group lastRow">
+					<div class="col-sm-offset-0 col-sm-10">
+						<button type="button" class="btn btn-primary">저장</button>
+						<button type="button" class="btn btn-secondary">취소</button>
+					</div>
+				</div>
+		</form>
+	</div>
+
+</body>
+</html>

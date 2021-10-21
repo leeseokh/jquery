@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function removeElement() {
+			var parentEle = document.getElementById("target");
+			var childEle = document.getElementById("p2");
+			
+			parentEle.removeChild(childEle);
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="target">
+		<p>첫번째 단락</p>
+		<p id="p2">두번째 단락</p>
+		<p>세번째 단락</p>
+		<p>네번째 단락</p>
+		<p>다섯번째 단락</p>
+	</div>
+	<button type="button" onclick="removeElement()">클릭</button>
+	
+</body>
+</html>

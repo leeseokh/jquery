@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			height: 100px;
+			border:1px solid;
+		}
+		img{
+			height: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+		function allowDrop(ev) {
+			console.log(ev);
+	     	//ev.target ==> div
+			//obj 와 ev.target 같음
+			ev.preventDefault(); //기본 동작을 막는 함수 / 이걸써야 드랍이 허용함.
+ 		}
+		
+		function drop(ev) {
+			ev.preventDefault(); //기본 동작을 막는 함수
+//			var ele1 = document.getElementById("tmpImg");
+//			var ele2 = document.getElementById("tmpDiv");
+//			ele2.appendChild(ele1);
+
+
+			var eleId= ev.dataTransfer.getData("text");
+			var ele1 = document.getElementById(eleId);
+//			var ele2 = document.getElementById("tmpDiv");
+			document.getElementById("tmpDiv").appendChild(ele1);
+		}
+		
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id)
+		}
+	</script>
+</head>
+<body>
+	<div id="tmpDiv" ondragover="allow(e)Drop(event, this)" ondrop="drop(event)"></div>
+	<hr>p
+	<!-- <img id="tmpImg" alt="coffee2" src="coffee.jfif" draggable="true"> -->
+	<img id="drag1" alt="coffee2" src="coffee.jfif" draggable="true" ondragstart="drag(event)">
+	<img id="drag2" alt="sp" src="spongebob.jpg" draggable="true" ondragstart="drag(event)">
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			width: 500px;
+			height: 30px;
+			border: 1px solid green;
+		}
+
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function() {
+			$("span:contains(jQ)").css("border", "solid 2px blue");
+			
+			$("span").not(":contains(jQ)").css("border", "dotted 2px blue");
+			
+			$#("div.has(sapn)").css("");
+
+			$#("div.empty").css("");
+			$#("div.span").css("");
+			$#("div.parent").css("");
+			
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<div>
+			헬로우~~ 
+			<span>오늘도 즐겁게~ 열심히!</span>
+		</div>
+		
+			<p>
+				Hello <span>Thanks, jQ</span>
+			</p>
+			<div>jQ!!!!!!</div>
+			<span>어려운 제이쿼리 ㅠㅠ</span>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		var flower="";
+		$(document).ready(function(){
+			$("button").click(function(){
+				
+				$(":selected").each(function(idx, item) {
+					if(idx != 0){
+						flower += ", ";
+					}
+					flower += $(this).val();
+				});
+			
+				$("#result").text(flower);
+				flower="";
+			});
+		});
+
+	</script>
+</head>
+<body>
+	<form>
+		봄소식 :
+		<br>
+		<br>		 
+		<select name="spring" id="spring" multiple="multiple">
+			<option value="개나리">개나리</option>	
+			<option value="진달래">진달래</option>		
+			<option value="민들레">민들레</option>		
+			<option value="벚꽃">벚꽃</option>		
+			<option value="목련">목련</option>		
+			<option value="철쭉">철쭉</option>		
+		</select>
+		<br>
+		<br>		
+		<button type="button">전송</button>
+		<br>
+		<br>
+		<div>
+			선택결과: <span id="result"></span>
+		</div>
+	</form>
+</body>
+</html>

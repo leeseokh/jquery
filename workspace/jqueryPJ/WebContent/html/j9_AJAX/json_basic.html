@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		//이름, 전화번호, 나이, 주소, 양반, 아들
+		var objJS = {
+			 name:"홍길동"
+			 ,phone:"010-5555-6666"
+			 ,age: 25
+			 ,date: "1425-12-14"
+				 ,addr:{
+						sido:"대전광역시"
+					 	,gugun: "중구"
+						,dong: "대사1동"
+						,bunji: "123번지"
+						,postCode: "12345"		//글자수 정해진거 char 잘 변하는거 
+					 }//대전 광역시 중구 대사1동 123번지
+			 ,hobby:["무술", "검술", "독서"]
+			 ,noble: false
+			 ,son: null
+		};
+		
+		var objJSON = {
+				 'name':"홍길동"
+				 ,'phone':"010-5555-6666"
+				 ,'age': 25
+				 ,'date': "1425-12-14"
+				 ,'addr':{
+					'sido':"대전광역시"
+				 	,'gugun': "중구"
+					,'dong': "대사1동"
+					,'bunji': "123번지"
+					,'postCode': "12345"		//글자수 정해진거 char 잘 변하는거 
+				 }//대전 광역시 중구 대사1동 123번지
+				 ,'hobby':["무술", "검술", "독서"]
+				 ,'noble': false
+				 ,"son": null
+			};
+			
+	//	JSON.stringify(objJS) ==> JSON형식의 문자열로 변환
+	//	JSON.parse(str) ==> 문자열을 Javascript 객체로 반환
+	
+		function proc() {
+			//1) javascript 객체를 json string 변환
+			var str =JSON.stringify(objJS);
+			console.log(str);
+			$("#result1").text(str); 
+		
+			//2) json string을 javascript 객체로 변환
+			var obj = JSON.parse(str);
+			console.log(obj);
+			$("#result2").text(obj);
+
+			$("#1").text(obj.name);
+		//	$("#2").text(obj.addr);
+			
+			var addr =obj.addr;
+			var strAddr = "[우:"+ addr.postCode + "]"
+			+ addr.sido + addr.gugun + addr.dong + addr.bunji;
+			$("#2").text(strAddr);
+			
+			
+		//	$("#3").text(obj.hobby);
+			var hobby1 = obj.hobby;
+			var strHobby = "";
+			for(var i =0; i <hobby1.length; i++){
+				strHobby +=hobby1[i] + ", ";
+			}
+			strHobby = strHobby.substr(0, strHobby.length-2);
+			$("#3").text(strHobby);
+			$("#4").text(new Date(obj.date));
+			
+			
+			
+		}
+	</script>
+	
+</head>
+<body>
+	<button type="button" onclick="proc()">JSON 변환 테스트</button>
+	<p>1차변환 (obj > str) :<span id="result1"></span></p>
+	<p>2차변환 (str > obj) :<span id="result2"></span></p>
+	
+	<p>이름 :<span id="1"></span></p>
+	<p>주소 :<span id="2"></span></p>
+	<p>취미:<span id="3"></span></p>
+	<p>생년월일 :<span id="4"></span></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

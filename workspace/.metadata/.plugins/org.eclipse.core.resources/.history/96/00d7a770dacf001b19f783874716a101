@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#td1, #td2 {
+			text-align:right;
+
+		}
+		table, h1{
+			width:270px;
+			height:150px;
+			margin:auto;
+			text-align: center;
+		}
+	</style>
+</head>
+</head>
+
+<body>
+
+<form name="searchId" method="post" action="viaId.jsp">
+
+<table width="1330px"  border="0"  height="430px" align="center"   >
+
+   <tr>
+
+    <td>
+
+     <table width="450px" align="center"  border="0" style="color:black; background-color: #F6F6F6; font-size:20px; ">
+
+    <tr>
+
+    <td>
+
+     <table width="750px" align="center" border=0; style="background-color:white; margin-top:3%" >
+
+      <tr>
+
+       <td>아이디 찾기</td>
+
+       <td><div id="sub-title"> |  회원정보에 등록한 정보로 인증.</td>
+
+       <td style="width:300px"></td>
+
+      </tr>
+
+     </table>
+
+    </td> 
+
+    </tr>       
+
+   <tr> 
+
+    <td>
+
+   <table width="600px"  height="300px" align="center" border="0"  style=" background-color:none; border:dotted 5px none;">
+
+    <tr>
+
+     <td>
+
+      <table width="400px"  border="0" style="margin-top:3%">
+
+       <tr>
+
+        <td><div id="middle-title">&nbsp;이름과 핸드폰 번호를 입력해주세요.</div>
+
+        </td>
+
+       </tr>
+
+      </table>
+
+     </td>
+
+    </tr>
+
+    <tr>
+
+     <td>
+
+      <table width="380px" align="center" border="0" style="font-size:19px">
+
+       <tr>
+
+        <td>이름</td>
+
+        <td><input type="text" name="userName"></td>
+
+       </tr>
+
+       <tr>
+
+        <td>휴대폰</td>
+
+        <td><select name="userPhone">
+
+        <option value ="010" selected="selected">010</option>
+
+        <option value ="011">011</option>
+
+        <option value ="016">016</option> 
+
+        <option value ="017">017</option>
+
+        </select> -
+
+        <input type="text" name="phone1" style="width:70px"> -
+
+        <input type="text" name="phone2" style="width:70px"></td>
+
+       </tr>
+
+      </table>
+
+     </td>
+
+    </tr>
+
+   
+
+    <tr>
+
+     <td>
+
+      <table width="150px"  align="center" border="0" style="margin-top:1%">
+
+       <tr>
+
+        <td><input type="submit" name="search" value="찾기" class="btn btn-primary">
+
+         <input type="button" name="cancel" value="취소" class="btn btn-primary" onclick="location.href='startPage.jsp'"></td>
+
+       </tr>
+
+      </table>
+
+     </td>
+
+    </tr>
+
+  </table>
+
+ </td>
+
+</tr>
+
+</table>
+
+</td>
+
+</table>
+
+</form>
+
+</body>
+
+</html>

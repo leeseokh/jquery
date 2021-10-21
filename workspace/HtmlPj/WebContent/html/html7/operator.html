@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		var value1 = prompt("첫번째 숫자를 입력하세요");
+		var operator = prompt("연산자를 입력하세요");
+		var value2 = prompt("두번째 숫자를 입력하세요");
+		
+	//	var result =val1 + op + val2 + "=";			//ctrl + p
+	//  var operator = prompt("연산자를 입력하세요");
+	//  연산자 변수명 다 operation으로 통일
+		
+		var sum = parseInt(value1) + parseInt(value2);
+		var sub = parseInt(value1) - parseInt(value2);
+		var mul = parseInt(value1) * parseInt(value2);
+		var div = parseInt(value1) / parseInt(value2);
+		var per = parseInt(value1) % parseInt(value2);
+			
+		if(operator == "+"){
+			document.write(sum);
+		}
+		else if(operator == "-"){
+			document.write(sub);
+		}
+		else if(operator == "*"){
+			document.write(mul);
+		}
+		else if(operator == "/"){
+			document.write(div);
+		}
+		else if(operator == "%"){
+			document.write(per);
+		}
+		else{
+			alert("연산자 입력이 잘못됐습니다.");
+			result = "연산자 입력이 잘못됐습니다."
+		//	return;
+		}
+				
+//		document.getElementById = operator;
+		document.write(result);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

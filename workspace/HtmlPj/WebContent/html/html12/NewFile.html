@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+   <title>정규화</title>
+   <style type="text/css">
+   		fieldset{
+   			width: 30%;
+   			padding: 30px;
+   		}
+   </style>
+   <script>
+      function save(){
+               
+         var id = document.getElementById('userId').value;
+         var password = document.getElementById('userPassword').value;
+         var name = document.getElementById('userName').value;
+         var birth = document.getElementById('birthday').value;
+         var phone = document.getElementById('hp').value;
+         var emailAd = document.getElementById('email').value;
+               
+         idValue = id.trim().length;
+         pwValue = password.trim().length;
+         nameValue = name.trim().length;
+         birthValue = birth.trim().length;
+         phoneValue = phone.trim().length;
+         emailAdValue = emailAd.trim().length;
+               
+            // ID 
+            if(idValue < 1){
+               alert("ID를 입력해주세요");
+               return false;
+            }
+            //아이디 8~20
+            if(idValue < 8 || idValue >20 ) {
+            alert("ID는 5 ~ 10자 사이로 입력해 주세요.");
+               return false;   
+            }
+            
+            var idReg = /^[a-z][a-zA-Z0-9]{4,9}$/;
+            if(!(idReg.test(id))){
+               alert("ID형식오류");
+               return false; 
+            }
+            
+            //비밀번호
+            if(pwValue < 1){
+               alert("비밀번호를 입력해주세요 (8~20) 영문 대소문자 특수기호 숫자를 다 넣어 조합해주세요.");
+               return false;
+            }
+            //비밀번호 8~20
+            if(pwValue < 8 || pwValue > 20 ){
+               alert("비밀번호는 8 ~ 20자 사이로 입력해주세요.");
+               return false;
+            }
+            var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&]).{7,19}$/;
+            if(!(pwReg.test(password))){
+               alert("비밀번호 형식오류"); 
+               return false; 
+            console.log(pwReg);
+            }
+            
+            
+            //이름
+            if(nameValue < 1){
+               alert("이름을 입력해주세요");
+               return false;
+            }
+            //이름 2~5
+            if(nameValue < 2 || nameValue > 5 ){
+               alert("이름은 2 ~ 5자 사이로 입력해주세요.");
+               return false;
+            }   
+            var nameReg = /^[가-힣]{2,5}$/; 
+            if(!(nameReg.test(name))){
+               alert("이름 형식 오류");
+               return false; 
+            }    
+            
+            //생년월일
+            if (birthValue < 1) { 
+               alert("생일 입력 ");
+               return false; 
+            }
+            
+            //휴대폰
+            if (phoneValue < 1) { 
+               alert("휴대폰 번호 입력 ");
+               return false; 
+            }
+            var phoneReg = /\d{3}-\d{4}-\d{4}/;
+            if(!(phoneReg.test(phone))){
+               alert("휴대폰 형식오류");
+               return false; 
+            }
+            
+            //이메일
+            if (emailAdValue < 1 ) { 
+               alert("메일 입력 "); 
+               return false; 
+            }
+            var emailReg =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+            if(!(emailReg.test(emailAd))){
+               alert("이메일형식오류");
+               return false; 
+            }
+            alert("가입 완료");
+      }
+   </script>
+</head>
+<body>
+   <form>
+   		<fieldset>
+ 	    	  <legend>회원정보입력</legend>
+		      <h1>회원정보</h1>
+   ID(5~10자) : <input type="text" id="userId"><br>
+비밀번호(8~20자) : <input type="password" id="userPassword"><br> 
+       	  이름 : <input type="text" id="userName"><br> 
+	     생년월일 : <input type="date" id="birthday"><br> 
+                 휴대폰 : <input type="text" id="hp"><br>
+	        이메일 : <input type="text" id="email"><br> <br>
+		      <button type="button" onclick="save()">전송</button>
+		      <button type="button">취소</button>
+ 		</fieldset>
+   </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQUERY 효과 - attr()</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+			function addTitle() {
+				var objImgs = $("img");
+				for(var i =0; i< objImgs.length; i++ ){
+					var objImg = objImgs[i]; // <img>
+					
+					console.log(objImg); // 이거슨 <img> 요소
+					console.log(objImg.src); // 이거슨 img 소스 :
+					
+					var strSrc = objImg.src;  //images/coffe.jfif	
+					var fileName ="";
+
+					var idx = objImg.lastIndexOf("/"); //6 자
+					var str = objImg.substr(idx + 1); //==> "coffee.jfif"
+				
+					var idx = str.lastIndexOf(".");	//7
+					fileName = str.substr(0, idx); //"coffee1"
+					
+					$(objImg).attr("title", "뭐시기");
+				}
+			}
+	
+	</script>
+</head>
+<body>
+	<img alt="i1" src="image/lion.jpg"  height="100px" width="100px">
+	<img alt="i2" src="image/tiger.jpg" height="100px" width="100px">
+	<img alt="i3" src="image/spongebob.jpg" height="100px" width="100px">
+	<img alt="i4" src="image/X.jpg" height="100px" width="100px">
+	<!-- <img alt="" src="">
+		==> src="a.jpg" > title="a"	 -->
+	
+	<br>
+	<button type="button" onclick="addTitle">클릭</button>
+</body>
+</html>

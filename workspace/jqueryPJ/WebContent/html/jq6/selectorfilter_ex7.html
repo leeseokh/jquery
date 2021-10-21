@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		%(document).ready(function() {
+			$(":disabled").css("border", "solid blue");
+		});
+	
+
+	</script>
+</head>
+<body>
+	<form>
+		<input type="text"><br>
+		<input type="password"><br>
+		<select name="disSelect" disabled="disabled">
+			<option>하나</option>
+			<option>둘</option>
+		</select>
+		<br>
+		<textarea name="enTextarea" rows="10" cols="20">text</textarea>
+		<br>
+		<input type="button" value="확인" disabled="disabled">
+		<br>
+	</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function() {
+			$("li:first, li:last").css("background-color", "yellow");
+			
+			$("li:eq(5)").css("background-color", "red");
+			
+			//5번째 보다 적은 요소들 두껍게
+			$("li:lt(4)").css("font-weight", "bold");
+			
+			//5번째 보다 큰 요소들  글자크기 0.5배			
+			//$("li:gt(4)").css("font-size", "0.5em");
+			$("li").slice(5).css("font-size", "0.5em");
+			
+		});
+	</script>
+</head>
+<body>
+	<ol>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+		<li>four</li>
+		<li>five</li>
+		<li>six</li>
+		<li>seven</li>
+		<li>eight</li>
+		<li>nine</li>
+	</ol>
+</body>
+</html>

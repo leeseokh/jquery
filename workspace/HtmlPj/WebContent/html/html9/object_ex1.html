@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+			var myCar ={
+					model : "GV70"
+					,year : 2021
+					,color: "blue"
+					,speed:	0		// ==> 속성 세팅
+					,brake: function() {
+/*this = myCar*/	this.speed -= 10;	// ==> brake 부르면 속도가 -10씩 줄어들음.
+					}
+					,accel: function(){
+						this.speed +=10;
+					}
+			};
+			
+			/* 
+			//속성 값 가져오기
+			myCar.color; ==> "blue"
+			myCar.year; ==> 2021
+			
+			//속성 값 세팅하기
+			myCar.year = 1999;
+			
+			//형수 accel 호출하기(사용하기)
+			myCar.accel(); */
+			
+			myCar.speed=100; //설정 값.
+			
+			document.write("모델:");
+			document.write(myCar.model);
+			document.write("<br>");
+			document.write("속도:");
+			document.write(myCar.speed);
+			document.write("<br>");
+			
+			document.write("accel 호출>>>");
+			document.write("<br>");
+			myCar.accel();
+			document.write("속도:");
+			document.write(myCar.speed);
+			document.write("<br>");
+			
+			document.write("brake 호출>>>");
+			document.write("<br>");
+			myCar.brake();
+			document.write("속도:");
+			document.write(myCar.speed);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

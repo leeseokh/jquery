@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DOM 트리 순회</title>
+</head>
+<body>
+	<h1>		<!--(element)요소면서 하나의 노드   h1은 태그의 이름이 노드 name  -->
+		메뉴
+	</h1>
+	<p> 
+		오늘도 저희 매장을 찾아주셔서 감사합니다.
+	</p>
+	<ul>
+		<li id="tmp1">커피
+			<ul>
+				<li>아메리카노</li>
+				<li>카페라떼</li>
+				<li>카푸치노</li>
+			</ul>
+		</li>
+		<li>NO커피
+			<ul>
+				<li>레몬에이드</li>
+				<li>콜라</li>
+			</ul>
+		</li>
+					
+	</ul>
+	<button type="button" onclick="proc()">클릭</button>
+	
+	<div id="result">
+		<!-- 레몬에이드, 콜라 -->
+	</div>	
+	
+	<script type="text/javascript">
+		function proc() {
+			var list = document.getElementsByTagName("ul")[0];
+			
+			var noCoffeeList = list.getElementsByTagName("ul")[1]; //두번째 ul
+			var arrItem = noCoffeeList.getElementsByTagName("li");
+			
+			var strHtml = "";
+			for(var i =0; i<arrItem.length; i++){
+				arrItem[i]; //=> <li>레몬에이드</li>
+				
+				console.log("====================");			
+				console.log(arrItem[i]);			
+//				console.log("value" + arrItem[i].value); //이건 아님 li.value x
+				console.log("innerHTML" +arrItem[i].innerHTML);// 이건 가능
+//				console.log(arrItem[i].children); //하위요소 리턴 ==> li 태그 안에 요소가 없어 불가능
+				console.log(arrItem[i].childNodes); //하위노드 목록 리턴 ==> "레몬에이드" 란 텍스트 노드 리턴			  
+				console.log(arrItem[i].childNodes[0]); //하위노드 목록에 0번째 노드 리턴 ==> "레몬에이드" 란 텍스트 노드 리턴			
+			
+				
+				//텍스트 노드에서 텍스트 가지고 오기.
+				console.log(arrItem[i].childNodes[0].data);	
+				console.log(arrItem[i].childNodes[0].nodeValue);   //data의 결과는 텍스트 외의 속성 등 다른 값들도 포함하고 있음. (가장 적합)
+//				console.log(arrItem[i].childNodes.textContent); //현재상태는 사용 가능하지만 전에는 하위 노드들의 텍스트까지 가져와서 적합하지 않음. 
+		//		break; // 로그 찍으면서 확인시
+				
+/* 				if(i > 0){
+					strHtml +=", ";									// , 뒤에 안붙이기
+				}
+				strHtml += arrItem[i].childNodes[0].data; */
+				
+				strHtml += arrItem[i].childNodes[0].data + ", ";
+			}
+			strHtml = strHtml.substr(0, strHtml.length - 2);
+			
+			document.getElementById("result").innerHTML = strHtml;		//[object Text], [object Text] 객체이기에 이렇게 출력됨.
+		}
+	</script>
+</body>
+</html>
+
+
+
